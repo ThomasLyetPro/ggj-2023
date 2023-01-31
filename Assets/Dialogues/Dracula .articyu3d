@@ -6,7 +6,7 @@
     "set_UseScriptSupport": "True",
     "ExportVersion": "1.2",
     "ObjectDefinitionsHash": "DCFCE6C7A0B8AE63C0259DB4B66E7C20352E4333B6D28A7CC00FA7BDE36E7455",
-    "ScriptFragmentsHash": "4666413280"
+    "ScriptFragmentsHash": "4666408320"
   },
   "Project": {
     "Name": "Dracula ",
@@ -6375,7 +6375,7 @@
               "h": 100.0
             },
             "ShortId": 3383132346,
-            "Expression": "DialogueChapter1_final.nameRevealed == truu",
+            "Expression": "DialogueChapter1_final.nameRevealed == true",
             "Color": {
               "r": 0.577580452,
               "g": 0.7605245,
