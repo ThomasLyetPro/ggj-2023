@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace AspectGgj2023.Gameboard 
+namespace AspectGgj2023.Gameboard
 {
     public class TileManager : MonoBehaviour
     {
@@ -19,8 +19,11 @@ namespace AspectGgj2023.Gameboard
 
         [SerializeField]
         private List<TileBase> placeableTiles;
-        # endregion
-        
+
+        [SerializeField]
+        private GameObject helpCanvas;
+        #endregion
+
         private Vector3Int lastCellHovered;
 
         private int selectedTileIndex = 0;
@@ -36,13 +39,15 @@ namespace AspectGgj2023.Gameboard
 
         void Update()
         {
+            if (GameIsPaused()) return;
+
             if (Input.GetKeyDown(KeyCode.Keypad0))
             {
-                selectedTileIndex = 0;
+                SelectStraightTile();
             }
             else if (Input.GetKeyDown(KeyCode.Keypad1))
             {
-                selectedTileIndex = 1;
+                SelectCurveTile();
             }
 
             if (Input.GetKey(KeyCode.Space))
@@ -63,16 +68,26 @@ namespace AspectGgj2023.Gameboard
                 // Manage the preview
                 else if (cellPosition != lastCellHovered)
                 {
-                    previewTilemap.DeleteCells(lastCellHovered, new Vector3Int(1,1,1));
+                    previewTilemap.DeleteCells(lastCellHovered, new Vector3Int(1, 1, 1));
                     previewTilemap.SetTile(cellPosition, previewTile);
 
                     lastCellHovered = cellPosition;
                 }
             }
-            else 
+            else
             {
                 previewTilemap.ClearAllTiles();
             }
+        }
+
+        public void SelectCurveTile()
+        {
+            selectedTileIndex = 1;
+        }
+
+        public void SelectStraightTile()
+        {
+            selectedTileIndex = 0;
         }
 
         private Vector3Int MouseToCellPosition()
@@ -87,6 +102,11 @@ namespace AspectGgj2023.Gameboard
 
             return mainTilemap.WorldToCell(worldPosition);
 
+        }
+
+        public bool GameIsPaused()
+        {
+            return helpCanvas && helpCanvas.activeSelf;
         }
     }
 }

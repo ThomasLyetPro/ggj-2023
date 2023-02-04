@@ -1,3 +1,4 @@
+using AspectGgj2023.Gameboard;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,9 @@ namespace AspectGgj2023.Interface
         # region Internal references
         [SerializeField]
         private Camera cameraObject;
+
+        [SerializeField]
+        private TileManager tileManager;
         # endregion
 
         /// <summary>
@@ -39,6 +43,8 @@ namespace AspectGgj2023.Interface
         }
 
         private void Update() {
+            if (tileManager.GameIsPaused()) return;
+
             CameraControl();
         }
 
