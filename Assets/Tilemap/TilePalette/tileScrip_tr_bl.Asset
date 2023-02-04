@@ -34,7 +34,7 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 1
-  connectMatrix:
-  - {x: 3, y: 4}
-  connectionId: 0
+  connectionMatrix:
+  - {x: 3, y: 1}
+  originTreeId: 0
   debugTree: 0

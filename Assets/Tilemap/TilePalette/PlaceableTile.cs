@@ -11,21 +11,28 @@ namespace AspectGgj2023.Gameboard
     public class PlaceableTile : Tile
     {
       [SerializeField]
-      [Header("connections pair are parsed that way :")]
-      [Header("1 is bottom left")]
-      [Header("2 is bottom right")]
-      [Header("3 is top right")]
-      [Header("4 is top left")]
-      [Header("x:1 and y:2 connect bottom left to bottom right.")]
+      [Header("Connections pair are parsed that way :")]
+      [Header("1 means it connects to the bottom left tile")]
+      [Header("2 means it connects to the bottom right tile")]
+      [Header("3 means it connects to the top right tile")]
+      [Header("4 means it connects to the top left tile")]
+      [Header("x:1 and y:2 mean the tile bridges the bottom left to the bottom right.")]
       [Header("1,2 and 2,1 are equivalents ")]
-      private List<Vector2Int> connectMatrix;
+      private List<Vector2Int> connectionMatrix;
 
-      public int connectionId = 0;
+      /// <summary>
+      /// ID of the tree connected to the tile.
+      /// </summary>
+      public int originTreeId = 0;
 
       public bool debugTree = false;
 
-      public List<Vector2Int> getConnectMatrix(){
-        return this.connectMatrix;
+      /// <summary>
+      /// Return the matrix Nx2 of the possible connections available for the tiles.
+      /// </summary>
+      public List<Vector2Int> GetConnectionMatrix()
+      {
+        return this.connectionMatrix;
       }
 
         #if UNITY_EDITOR

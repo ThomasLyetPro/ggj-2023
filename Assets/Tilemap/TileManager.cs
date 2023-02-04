@@ -15,19 +15,14 @@ namespace AspectGgj2023.Gameboard
         private Tilemap previewTilemap;
 
         [SerializeField]
+        private GameObject helpCanvas;
+
+        [Header("Available tiles")]
+        [SerializeField]
         private PlaceableTile tileBLBR;
 
         [SerializeField]
         private PlaceableTile tileTLBL;   
-        
-        [SerializeField]
-        private List<TileBase> placeableTiles;
-
-        [SerializeField]
-        private GameObject helpCanvas;
-
-        [SerializeField]
-        private PlaceableTile straightTiles;
 
         [SerializeField]
         private PlaceableTile tileTRBL;   
@@ -41,146 +36,184 @@ namespace AspectGgj2023.Gameboard
         private PlaceableTile tileTRTL;   
         # endregion
         
+        /// <summary>
+        /// Coordinates of the last cell hovered in tilemap space.
+        /// </summary>
         private Vector3Int lastCellHovered;
 
+        /// <summary>
+        /// Tile class currently selected.
+        /// </summary>
         private PlaceableTile selectedTile;
 
-        private Dictionary<Vector3Int, int> connectionIDs = new Dictionary<Vector3Int, int>();
+        /// <summary>
+        /// Table matching cell coordinates with the ID of its origin tree.
+        /// </summary> 
+        /// <remarks>
+        /// We can't store it in the tiles custom scripts since we never really instance them (they're juste references)
+        /// </remarks>
+        private Dictionary<Vector3Int, int> originTreeIds = new Dictionary<Vector3Int, int>();
 
         void Start()
         {
+            // Assert the SerializeFields to avoid finding null refs mid-through a test
             Debug.Assert(mainTilemap != null);
             Debug.Assert(previewTilemap != null);
-
             Debug.Assert(tileBLBR != null);
             Debug.Assert(tileTLBL != null);
             Debug.Assert(tileTLBR != null);
             Debug.Assert(tileTRBR != null);
             Debug.Assert(tileTRTL != null);
             Debug.Assert(tileTRBL != null);
-            selectedTile = tileTLBR;
 
+            // Default selected tile
+            selectedTile = tileTLBR;
         }
 
-        void Update()
+        private void Update()
         {
         	if (GameIsPaused()) return;
         	
+            // Draw the connectivity in the debug view
             DisplayConnectivityDebug();
 
+            // Change the selected tile using the keyboard
             GetSelectedTileDebug(ref selectedTile);
-            
 
-            if (selectedTile)
+            // No tile selected: nothing to place and stop there
+            if (!selectedTile)
             {
-                Vector3Int cellPosition = MouseToCellPosition();
-
-                // Display no preview and prevent placing if we're on a StaticTile space
-                if (mainTilemap.GetTile(cellPosition) is StaticTile)
-                {
-                    previewTilemap.ClearAllTiles();
-                    return;
-                }
-
-                // Place and delete stuff on the main tilemap
-                if (Input.GetMouseButtonDown(0))
-                {
-                    mainTilemap.SetTile(cellPosition, selectedTile);
-                    connectionIDs[cellPosition] = selectedTile.connectionId;
-                    checkForPath(cellPosition, selectedTile);
-                }
-                else if (Input.GetMouseButtonDown(1))
-                {
-                    mainTilemap.SetTile(cellPosition, null);
-                }
-
-                // Manage the preview
-                else if (cellPosition != lastCellHovered)
-                {
-                    previewTilemap.DeleteCells(lastCellHovered, new Vector3Int(1, 1, 1));
-                    previewTilemap.SetTile(cellPosition, selectedTile);
-
-                    lastCellHovered = cellPosition;
-                }
+                Debug.Log("Nothing selected");
+                previewTilemap.ClearAllTiles();
+                return; 
             }
-            else
+
+            Vector3Int cellPosition = MouseToCellPosition();
+
+            // Display no preview and prevent placing if we're on a StaticTile space
+            if (mainTilemap.GetTile(cellPosition) is StaticTile)
             {
                 previewTilemap.ClearAllTiles();
+                return;
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                mainTilemap.SetTile(cellPosition, selectedTile);
+
+                // Set the default tree ID of the tile and try to connect it to its neighbours
+                originTreeIds[cellPosition] = selectedTile.originTreeId;
+                CheckForPath(cellPosition, selectedTile);
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                // Deselect the tile if we don't want to place anything
+                selectedTile = null;
+            }
+
+            // Manage the preview
+            else if (cellPosition != lastCellHovered)
+            {
+                // Delete the previous preview tile set and create the new one
+                previewTilemap.DeleteCells(lastCellHovered, new Vector3Int(1, 1, 1));
+                previewTilemap.SetTile(cellPosition, selectedTile);
+
+                // Remember the position
+                lastCellHovered = cellPosition;
             }
         }
 
+        /// <summary>
+        /// Return the position of the cell currently hovered with the mouse.
+        /// </summary>
         private Vector3Int MouseToCellPosition()
         {
+            // Get the mouse position in screen space
             Vector3 mousePosition = Input.mousePosition;
             mousePosition.z = Camera.main.nearClipPlane;
 
+            // Convert it to world position on the plane of game
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
-            // Clamp it to the XY place because that's where the 2D screen is
             worldPosition.z = 0;
 
+            // Return its value in tilemap space
             return mainTilemap.WorldToCell(worldPosition);
         }
+        
+        /// <summary>
+        /// Check if the game is paused
+        /// </summary>
+        public bool GameIsPaused()
+        {
+            return helpCanvas && helpCanvas.activeSelf;
+        }
 
-        private Vector3Int getConnectionPos(Vector3Int position, int connectionCode) 
+        # region Path connections management
+        /// <summary>
+        /// Return the next position for a given connection value.
+        private Vector3Int GetConnectedPosition(Vector3Int position, int connectionCode) 
         {
             switch (connectionCode)
             {
                 case 1: 
-                    // connection BL
+                    // Connects to the tile at the bottom left (BL)
                     position.x -= 1;
                 break;
 
                 case 2: 
-                    // connection BR
+                    // Connects to the tile at the bottom right (BR)
                     position.y -= 1;
                 break;
 
                 case 3: 
-                    // connection TR
+                    // Connects to the tile at the top right (TR)
                     position.x += 1;
                 break;
 
                 case 4: 
-                    // connection TL
+                    // Connects to the tile at the top left (TL)
                     position.y +=1 ;
                 break;
             }
             return position;
         }
 
-
+        // TODO: Dead code ?
         private PlaceableTile goToNextTile(Vector3Int position, int connectionOrigin){
 
-            List<Vector2Int> matrix = mainTilemap.GetTile<PlaceableTile>(position).getConnectMatrix();
+            List<Vector2Int> matrix = mainTilemap.GetTile<PlaceableTile>(position).GetConnectionMatrix();
             Vector2Int connectionPair = matrix.Find( connectionPair => connectionPair.x == connectionOrigin || connectionPair.y == connectionOrigin);
             int otherConnection = connectionPair.x == connectionOrigin ? connectionPair.y : connectionPair.x; 
 
-            Vector3Int connectedPos = getConnectionPos(position, otherConnection);
+            Vector3Int connectedPos = GetConnectedPosition(position, otherConnection);
 
-            if(isConnectable(connectedPos, otherConnection)){
+            if(IsConnectable(connectedPos, otherConnection)){
                 return mainTilemap.GetTile<PlaceableTile>(position);
             } else {
                 return null;
             }
         }
 
-
-        private void handleConnection(Vector3Int originPos, List<Vector3Int> connectionsPos){
+        /// <summary>
+        /// Change the b
+        /// </summary>
+        private void HandleConnection(Vector3Int originPos, List<Vector3Int> connectionsPos)
+        {
             PlaceableTile originTile = mainTilemap.GetTile<PlaceableTile>(originPos);
-            Debug.Log("Origin tile instance ID: " + originTile.GetInstanceID());
 
+            // TODO: Remove when we have a nice tree tile
             int newConnectionId = originTile.debugTree ? 1 : 0;
+
             Vector3Int neutralTilePos = new Vector3Int(0,0,0);
             PlaceableTile neutralTile = null;
             foreach (Vector3Int pos in connectionsPos)
             {
                 PlaceableTile connectedTile = mainTilemap.GetTile<PlaceableTile>(pos);
-                if(connectedTile && connectionIDs[pos] != 0){
+                if(connectedTile && originTreeIds[pos] != 0){
                     if(newConnectionId != 0 ){
                         return;
                     } else {
-                        newConnectionId = connectionIDs[pos];
+                        newConnectionId = originTreeIds[pos];
                     }
                 } else {
                     neutralTilePos = pos;
@@ -188,48 +221,70 @@ namespace AspectGgj2023.Gameboard
                 }
             }
 
-            connectionIDs[originPos] = newConnectionId;
+            originTreeIds[originPos] = newConnectionId;
 
             if(newConnectionId != 0 && neutralTile && !originTile.debugTree){
-                checkForPath(neutralTilePos, neutralTile);
+                CheckForPath(neutralTilePos, neutralTile);
             }
         }
 
-        private bool isConnectable(Vector3Int position, int connection){
+        /// <summary>
+        /// Checks if the tile at a given position can be connected to a neighbour with the given connection code in its <see cref="PlaceableTile.connectionMatrix"/>.
+        /// </summary>
+        private bool IsConnectable(Vector3Int position, int connectionCode)
+        {
+            // Checks first if the neighbour is the type that can have connections
             PlaceableTile connectedTile = mainTilemap.GetTile<PlaceableTile>(position);
-            if(connectedTile) {
-                foreach(Vector2Int otherConnectionPair in connectedTile.getConnectMatrix()){
-                    for(int j = 0; j < 2; j++){
-                        int otherConnection = otherConnectionPair[j];
-                        if(Mathf.Abs(otherConnection - connection) == 2){
-                            return true;
-                        }
+            if (!connectedTile) 
+            {
+                return false;
+            }
+
+            foreach(Vector2Int connectionPair in connectedTile.GetConnectionMatrix())
+            {
+                for(int j = 0; j < 2; j++)
+                {
+                    int otherConnection = connectionPair[j];
+
+                    // Reminder: (bottom-left, bottom-right, top-right, top-left) => (1, 2, 3, 4)
+                    // Since bottom-left can only connect to top-right, one minus the other makes always 2 or -2
+                    // Same for aany other combination
+                    if (Mathf.Abs(otherConnection - connectionCode) == 2)
+                    {
+                        return true;
                     }
                 }
             }
             return false;
         }
-        private void checkForPath(Vector3Int position, PlaceableTile tile ){
-            List<Vector2Int> matrix = tile.getConnectMatrix();
+
+        /// <summary>
+        /// Check if the tile at a given position can be connected to an existing path.
+        /// </summary>
+        private void CheckForPath(Vector3Int position, PlaceableTile tile)
+        {
             List<Vector3Int> connectedTilesPos = new List<Vector3Int>();
-            foreach(Vector2Int connectionPair in matrix){
-                for(int i = 0; i < 2; i++){
-                    int connection = connectionPair[i];
-                    Vector3Int connectedPos = getConnectionPos(position, connection);
-                    if(isConnectable(connectedPos, connection)) {
-                        connectedTilesPos.Add(connectedPos);
+            foreach(Vector2Int connectionPair in tile.GetConnectionMatrix())
+            {
+                // Test each end of the pair
+                for (int i = 0; i < 2; i++)
+                {
+                    int connectionCode = connectionPair[i];
+                    Vector3Int neighbourPosition = GetConnectedPosition(position, connectionCode);
+
+                    // Add it to the list if it can be connected to the tile we're processing
+                    if (IsConnectable(neighbourPosition, connectionCode)) 
+                    {
+                        connectedTilesPos.Add(neighbourPosition);
                     }
                 }
             }
 
-            handleConnection(position, connectedTilesPos);
+            HandleConnection(position, connectedTilesPos);
         }
-        
-        public bool GameIsPaused()
-        {
-            return helpCanvas && helpCanvas.activeSelf;
-        }
+        # endregion
 
+        # region Debug tools
         /// <summary>
         /// Display debug lines for connectivity in the editor view
         /// </summary>
@@ -251,7 +306,8 @@ namespace AspectGgj2023.Gameboard
                 Vector3 worldPosition = mainTilemap.CellToWorld(point);
                 Color debugColor;
 
-                switch (connectionIDs[point])
+                // Match each connection to a tree with a color
+                switch (originTreeIds[point])
                 {
                     case 0:
                         debugColor = Color.black;
@@ -270,6 +326,7 @@ namespace AspectGgj2023.Gameboard
                         break;
                 }
                 
+                // Display a little colored cross on top of the tile in the editor
                 Debug.DrawLine(worldPosition, worldPosition + 0.8f*Vector3.up, debugColor, 1);
                 Debug.DrawLine(worldPosition - 0.5f*Vector3.right + 0.5f*Vector3.up, worldPosition + 0.5f*Vector3.right + 0.5f*Vector3.up,debugColor, 1);
             }
@@ -305,5 +362,6 @@ namespace AspectGgj2023.Gameboard
                 selectedTile = tileTRTL;
             }
         }
+        # endregion
     }
 }
