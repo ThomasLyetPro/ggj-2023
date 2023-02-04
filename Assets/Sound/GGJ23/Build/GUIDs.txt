@@ -1,0 +1,6 @@
+{b3b13ef6-8a61-4fe8-bf0a-f7bbb32a1b60} bank:/Master
+{2bac1e22-fb1a-03aa-3943-7d4542d91df8} bank:/Master.strings
+{73469c35-ad8d-4896-a867-5450f2999934} bus:/
+{d0c0e933-280a-4eef-bda6-2fc2b3aece95} bus:/Reverb
+{cfc8519a-f6bb-49e5-a4ee-a541306919e4} event:/Ajout tuile
+{dc43014d-c124-4732-b2ab-31dcb2f068b5} event:/Ambiance 1
