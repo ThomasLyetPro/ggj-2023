@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: isometric_0085
+  m_Name: tile_bl_br
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 0f06e05e14c99c74eb4c7897e4133af1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 206a89b19a045224081cc3822c7fbfa6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
