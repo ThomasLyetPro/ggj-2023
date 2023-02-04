@@ -45,6 +45,8 @@ namespace AspectGgj2023.Gameboard
 
         private PlaceableTile selectedTile;
 
+        private Dictionary<Vector3Int, int> connectionIDs = new Dictionary<Vector3Int, int>();
+
         void Start()
         {
             Debug.Assert(mainTilemap != null);
@@ -63,40 +65,28 @@ namespace AspectGgj2023.Gameboard
         void Update()
         {
         	if (GameIsPaused()) return;
-        
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                selectedTile = tileBLBR;
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                selectedTile = tileTLBL;
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                selectedTile = tileTRBL;
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-                selectedTile = tileTRBR;
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha5))
-            {
-                selectedTile = tileTLBR;
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha6))
-            {
-                selectedTile = tileTRTL;
-            }
+        	
+            DisplayConnectivityDebug();
+
+            GetSelectedTileDebug(ref selectedTile);
+            
 
             if (selectedTile)
             {
                 Vector3Int cellPosition = MouseToCellPosition();
 
+                // Display no preview and prevent placing if we're on a StaticTile space
+                if (mainTilemap.GetTile(cellPosition) is StaticTile)
+                {
+                    previewTilemap.ClearAllTiles();
+                    return;
+                }
+
                 // Place and delete stuff on the main tilemap
                 if (Input.GetMouseButtonDown(0))
                 {
                     mainTilemap.SetTile(cellPosition, selectedTile);
+                    connectionIDs[cellPosition] = selectedTile.connectionId;
                     checkForPath(cellPosition, selectedTile);
                 }
                 else if (Input.GetMouseButtonDown(1))
@@ -132,7 +122,8 @@ namespace AspectGgj2023.Gameboard
             return mainTilemap.WorldToCell(worldPosition);
         }
 
-        private Vector3Int getConnectionPos(Vector3Int position, int connectionCode) {
+        private Vector3Int getConnectionPos(Vector3Int position, int connectionCode) 
+        {
             switch (connectionCode)
             {
                 case 1: 
@@ -177,27 +168,29 @@ namespace AspectGgj2023.Gameboard
 
         private void handleConnection(Vector3Int originPos, List<Vector3Int> connectionsPos){
             PlaceableTile originTile = mainTilemap.GetTile<PlaceableTile>(originPos);
+            Debug.Log("Origin tile instance ID: " + originTile.GetInstanceID());
 
-            int newConnectionId = 0;
+            int newConnectionId = originTile.debugTree ? 1 : 0;
             Vector3Int neutralTilePos = new Vector3Int(0,0,0);
             PlaceableTile neutralTile = null;
             foreach (Vector3Int pos in connectionsPos)
             {
                 PlaceableTile connectedTile = mainTilemap.GetTile<PlaceableTile>(pos);
-                if(connectedTile.connectionId != 0){
+                if(connectedTile && connectionIDs[pos] != 0){
                     if(newConnectionId != 0 ){
                         return;
                     } else {
-                        newConnectionId = connectedTile.connectionId;
+                        newConnectionId = connectionIDs[pos];
                     }
                 } else {
                     neutralTilePos = pos;
                     neutralTile = connectedTile;
                 }
             }
-            originTile.connectionId = newConnectionId;
 
-            if(newConnectionId != 0){
+            connectionIDs[originPos] = newConnectionId;
+
+            if(newConnectionId != 0 && neutralTile && !originTile.debugTree){
                 checkForPath(neutralTilePos, neutralTile);
             }
         }
@@ -231,10 +224,86 @@ namespace AspectGgj2023.Gameboard
 
             handleConnection(position, connectedTilesPos);
         }
-
+        
         public bool GameIsPaused()
         {
             return helpCanvas && helpCanvas.activeSelf;
+        }
+
+        /// <summary>
+        /// Display debug lines for connectivity in the editor view
+        /// </summary>
+        private void DisplayConnectivityDebug()
+        {
+            BoundsInt tilemapBounds = mainTilemap.cellBounds;
+           
+            // Iterate through all the possible tiles in the tilemap
+            foreach (var point in tilemapBounds.allPositionsWithin)
+            {
+                PlaceableTile tile = mainTilemap.GetTile(point) as PlaceableTile;
+
+                // Not a placeable tile: we don't
+                if (tile is null)
+                {
+                    continue;
+                }
+
+                Vector3 worldPosition = mainTilemap.CellToWorld(point);
+                Color debugColor;
+
+                switch (connectionIDs[point])
+                {
+                    case 0:
+                        debugColor = Color.black;
+                        break; 
+                    case 1:
+                        debugColor = Color.red;
+                        break;
+                    case 2:
+                        debugColor = Color.blue;
+                        break;
+                    case 3:
+                        debugColor = Color.green;
+                        break;
+                    default://case 4:
+                        debugColor = Color.yellow;
+                        break;
+                }
+                
+                Debug.DrawLine(worldPosition, worldPosition + 0.8f*Vector3.up, debugColor, 1);
+                Debug.DrawLine(worldPosition - 0.5f*Vector3.right + 0.5f*Vector3.up, worldPosition + 0.5f*Vector3.right + 0.5f*Vector3.up,debugColor, 1);
+            }
+        }
+
+        /// <summary>
+        /// Change the selected tile from the numeric keys of the keyboard.
+        /// </summary>
+        private void GetSelectedTileDebug(ref PlaceableTile selectedTile)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                selectedTile = tileBLBR;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                selectedTile = tileTLBL;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                selectedTile = tileTRBL;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                selectedTile = tileTRBR;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                selectedTile = tileTLBR;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                selectedTile = tileTRTL;
+            }
         }
     }
 }

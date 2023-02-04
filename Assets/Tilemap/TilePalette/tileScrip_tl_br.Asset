@@ -36,3 +36,5 @@ MonoBehaviour:
   m_ColliderType: 1
   connectMatrix:
   - {x: 4, y: 2}
+  connectionId: 0
+  debugTree: 1

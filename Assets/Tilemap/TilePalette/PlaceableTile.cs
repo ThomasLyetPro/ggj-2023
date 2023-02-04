@@ -10,7 +10,6 @@ namespace AspectGgj2023.Gameboard
 {
     public class PlaceableTile : Tile
     {
-
       [SerializeField]
       [Header("connections pair are parsed that way :")]
       [Header("1 is bottom left")]
@@ -23,14 +22,11 @@ namespace AspectGgj2023.Gameboard
 
       public int connectionId = 0;
 
+      public bool debugTree = false;
+
       public List<Vector2Int> getConnectMatrix(){
         return this.connectMatrix;
       }
-
-      private void Awake() {
-
-      }
-
 
         #if UNITY_EDITOR
       // The following is a helper that adds a menu item to create a MyTile Asset
