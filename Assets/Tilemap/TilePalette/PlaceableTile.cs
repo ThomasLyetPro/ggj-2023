@@ -19,9 +19,9 @@ namespace AspectGgj2023.Gameboard
       [Header("4 is top left")]
       [Header("x:1 and y:2 connect bottom left to bottom right.")]
       [Header("1,2 and 2,1 are equivalents ")]
-      [Tooltip("")]
       private List<Vector2Int> connectMatrix;
 
+      public int connectionId = 0;
 
       public List<Vector2Int> getConnectMatrix(){
         return this.connectMatrix;
