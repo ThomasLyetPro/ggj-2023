@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d35f126fcee49574cbb5130adcb53b40, type: 3}
-  m_Name: straightTileRotated
+  m_Name: tileScrip_tl_br
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c165927e8ca86ae448e02c94f5c05143, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -35,4 +35,4 @@ MonoBehaviour:
   m_Flags: 1
   m_ColliderType: 1
   connectMatrix:
-  - {x: 2, y: 3}
+  - {x: 4, y: 2}

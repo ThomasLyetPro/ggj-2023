@@ -15,8 +15,11 @@ namespace AspectGgj2023.Gameboard
         private Tilemap previewTilemap;
 
         [SerializeField]
-        private TileBase previewTile;
+        private PlaceableTile tileBLBR;
 
+        [SerializeField]
+        private PlaceableTile tileTLBL;   
+        
         [SerializeField]
         private List<TileBase> placeableTiles;
 
@@ -27,16 +30,15 @@ namespace AspectGgj2023.Gameboard
         private PlaceableTile straightTiles;
 
         [SerializeField]
-        private TileBase cornerTopRight;   
+        private PlaceableTile tileTRBL;   
+        [SerializeField]
+        private PlaceableTile tileTRBR;   
 
         [SerializeField]
-        private TileBase cornerTopLeft;     
+        private PlaceableTile tileTLBR;     
 
         [SerializeField]
-        private PlaceableTile cornerBottomRight;   
-
-        [SerializeField]
-        private TileBase cornerBottomLeft;        
+        private PlaceableTile tileTRTL;   
         # endregion
         
         private Vector3Int lastCellHovered;
@@ -47,34 +49,48 @@ namespace AspectGgj2023.Gameboard
         {
             Debug.Assert(mainTilemap != null);
             Debug.Assert(previewTilemap != null);
-            Debug.Assert(previewTile != null);
 
-            Debug.Assert(straightTiles != null);
-            Debug.Assert(cornerTopLeft != null);
-            Debug.Assert(cornerTopRight != null);
-            Debug.Assert(cornerBottomLeft != null);
-            Debug.Assert(cornerBottomRight != null);
-            selectedTile = straightTiles;
+            Debug.Assert(tileBLBR != null);
+            Debug.Assert(tileTLBL != null);
+            Debug.Assert(tileTLBR != null);
+            Debug.Assert(tileTRBR != null);
+            Debug.Assert(tileTRTL != null);
+            Debug.Assert(tileTRBL != null);
+            selectedTile = tileTLBR;
 
         }
 
         void Update()
         {
-            if (GameIsPaused()) return;
-
-            if (Input.GetKeyDown(KeyCode.Keypad0))
+        	if (GameIsPaused()) return;
+        
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                SelectStraightTile();
-                if (Input.GetKeyDown(KeyCode.Alpha1))
-                {
-                    selectedTile = straightTiles;
-                }
-                else if (Input.GetKeyDown(KeyCode.Alpha2))
-                {
-                    SelectCurveTile();
-                    selectedTile = cornerBottomRight;
-                }
+                selectedTile = tileBLBR;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                selectedTile = tileTLBL;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                selectedTile = tileTRBL;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                selectedTile = tileTRBR;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                selectedTile = tileTLBR;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                selectedTile = tileTRTL;
+            }
 
+            if (selectedTile)
+            {
                 if (Input.GetKey(KeyCode.Space))
                 {
                     Vector3Int cellPosition = MouseToCellPosition();
@@ -94,7 +110,7 @@ namespace AspectGgj2023.Gameboard
                     else if (cellPosition != lastCellHovered)
                     {
                         previewTilemap.DeleteCells(lastCellHovered, new Vector3Int(1, 1, 1));
-                        previewTilemap.SetTile(cellPosition, previewTile);
+                        previewTilemap.SetTile(cellPosition, selectedTile);
 
                         lastCellHovered = cellPosition;
                     }
@@ -104,16 +120,6 @@ namespace AspectGgj2023.Gameboard
                     previewTilemap.ClearAllTiles();
                 }
             }
-        }
-
-        public void SelectCurveTile()
-        {
-            selectedTileIndex = 1;
-        }
-
-        public void SelectStraightTile()
-        {
-            selectedTileIndex = 0;
         }
 
         private Vector3Int MouseToCellPosition()
@@ -135,7 +141,6 @@ namespace AspectGgj2023.Gameboard
             foreach(Vector2Int connectionPair in matrix){
                 for(int i = 0; i < 2; i++){
                     int connection = connectionPair[i];
-
                     Vector3Int connectedPos = position;
                     switch (connection)
                     {
