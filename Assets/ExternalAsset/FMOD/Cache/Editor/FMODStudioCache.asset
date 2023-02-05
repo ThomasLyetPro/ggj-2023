@@ -69,7 +69,11 @@ MonoBehaviour:
   Path: Assets/Sound/GGJ23/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
+<<<<<<< HEAD
   lastModified: 638111205812279386
+=======
+  lastModified: 638111203847284627
+>>>>>>> 782f684720a0c0d0a4609c8453883c618987e82e
   FileSizes:
   - Name: Desktop
     Value: 812
@@ -97,7 +101,11 @@ MonoBehaviour:
   - {fileID: 7953550916589879510}
   StringsBanks:
   - {fileID: -5639387537771079057}
+<<<<<<< HEAD
   cacheTime: 638111205812279386
+=======
+  cacheTime: 638111203847284627
+>>>>>>> 782f684720a0c0d0a4609c8453883c618987e82e
   cacheVersion: 131601
 --- !u!114 &7953550916589879510
 MonoBehaviour:
@@ -114,7 +122,11 @@ MonoBehaviour:
   Path: Assets/Sound/GGJ23/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
+<<<<<<< HEAD
   lastModified: 638111205812279386
+=======
+  lastModified: 638111203847284627
+>>>>>>> 782f684720a0c0d0a4609c8453883c618987e82e
   FileSizes:
   - Name: Desktop
     Value: 581280
