@@ -68,6 +68,19 @@ namespace AspectGgj2023.Gameboard
 
             // Default selected tile
             selectedTile = tileTLBR;
+
+            BoundsInt tilemapBounds = mainTilemap.cellBounds;
+           
+            // Iterate through all the possible tiles in the tilemap
+            foreach (var point in tilemapBounds.allPositionsWithin)
+            {
+                
+                OriginTreeTile tile = mainTilemap.GetTile(point) as OriginTreeTile;
+                if (tile) 
+                {
+                    originTreeIds[point] = tile.GetOriginTreeId();
+                }
+            }
         }
 
         private void Update()
@@ -90,8 +103,9 @@ namespace AspectGgj2023.Gameboard
 
             Vector3Int cellPosition = MouseToCellPosition();
 
-            // Display no preview and prevent placing if we're on a StaticTile space
-            if (mainTilemap.GetTile(cellPosition) is StaticTile)
+            // Display no preview and prevent placing if we're not on a PlaceableTile space
+            TileBase tile = mainTilemap.GetTile(cellPosition);
+            if ((tile is StaticTile) || (tile is OriginTreeTile))
             {
                 previewTilemap.ClearAllTiles();
                 return;
@@ -195,35 +209,54 @@ namespace AspectGgj2023.Gameboard
         }
 
         /// <summary>
-        /// Change the b
+        /// Change the tree ID of the tile based on its neighbours.
         /// </summary>
-        private void HandleConnection(Vector3Int originPos, List<Vector3Int> connectionsPos)
+        private void HandleConnection(Vector3Int originPos, List<Vector3Int> connectableNeighbours)
         {
             PlaceableTile originTile = mainTilemap.GetTile<PlaceableTile>(originPos);
 
-            // TODO: Remove when we have a nice tree tile
-            int newConnectionId = originTile.debugTree ? 1 : 0;
+            int newConnectionId = originTreeIds[originPos];
 
             Vector3Int neutralTilePos = new Vector3Int(0,0,0);
             PlaceableTile neutralTile = null;
-            foreach (Vector3Int pos in connectionsPos)
+            foreach (Vector3Int neighbourPosition in connectableNeighbours)
             {
-                PlaceableTile connectedTile = mainTilemap.GetTile<PlaceableTile>(pos);
-                if(connectedTile && originTreeIds[pos] != 0){
-                    if(newConnectionId != 0 ){
+                // Check first if one of the nighbours is an origin tree tile
+                OriginTreeTile originTreeTile = mainTilemap.GetTile<OriginTreeTile>(neighbourPosition);
+                if (originTreeTile)
+                {
+                    if(newConnectionId != 0 )
+                    {
                         return;
-                    } else {
-                        newConnectionId = originTreeIds[pos];
-                    }
-                } else {
-                    neutralTilePos = pos;
+                    } 
+                    
+                    newConnectionId = originTreeTile.GetOriginTreeId();
+                    continue;
+                }
+
+                PlaceableTile connectedTile = mainTilemap.GetTile<PlaceableTile>(neighbourPosition);
+
+                if(connectedTile && originTreeIds[neighbourPosition] != 0)
+                {
+                    if(newConnectionId != 0 )
+                    {
+                        return;
+                    } 
+                    
+                    newConnectionId = originTreeIds[neighbourPosition];
+                    
+                } 
+                else 
+                {
+                    neutralTilePos = neighbourPosition;
                     neutralTile = connectedTile;
                 }
             }
 
             originTreeIds[originPos] = newConnectionId;
 
-            if(newConnectionId != 0 && neutralTile && !originTile.debugTree){
+            // Reattach a potential dangling path
+            if(newConnectionId != 0 && neutralTile){
                 CheckForPath(neutralTilePos, neutralTile);
             }
         }
@@ -233,7 +266,14 @@ namespace AspectGgj2023.Gameboard
         /// </summary>
         private bool IsConnectable(Vector3Int position, int connectionCode)
         {
-            // Checks first if the neighbour is the type that can have connections
+            // If a tile from an origin tree, we can always connect
+            OriginTreeTile originTreeTile = mainTilemap.GetTile<OriginTreeTile>(position);
+            if (originTreeTile)
+            {
+                return true;
+            }
+
+            // Checks if the neighbour is the type that can have connections
             PlaceableTile connectedTile = mainTilemap.GetTile<PlaceableTile>(position);
             if (!connectedTile) 
             {

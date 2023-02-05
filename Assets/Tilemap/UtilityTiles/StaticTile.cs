@@ -13,10 +13,9 @@ namespace AspectGgj2023.Gameboard
     /// </summary>
     public class StaticTile : Tile
     {
-
         #if UNITY_EDITOR
       // The following is a helper that adds a menu item to create a MyTile Asset
-          [MenuItem("Assets/Create/StaticTile")]
+          [MenuItem("Assets/Create/CustomTiles/StaticTile")]
           public static void CreateMyTile()
           {
               string path = EditorUtility.SaveFilePanelInProject("Save My Tile", "New My Tile", "Asset", "Save My Tile", "Assets");
