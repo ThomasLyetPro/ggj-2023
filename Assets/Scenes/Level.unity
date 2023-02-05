@@ -44531,7 +44531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1411981749, guid: 6232600fdfdda3a42a6c4af60d038f08, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1635727602, guid: 6232600fdfdda3a42a6c4af60d038f08, type: 3}
       propertyPath: dialogueManager
