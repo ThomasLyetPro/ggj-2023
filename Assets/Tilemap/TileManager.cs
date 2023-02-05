@@ -96,10 +96,6 @@ namespace AspectGgj2023.Gameboard
             // No tile selected: nothing to place and stop there
             if (!selectedTile)
             {
-<<<<<<< HEAD
-                // Debug.Log("Nothing selected");
-=======
->>>>>>> 782f684720a0c0d0a4609c8453883c618987e82e
                 previewTilemap.ClearAllTiles();
                 return; 
             }
