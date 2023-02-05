@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{36f77045-661c-487b-9dd6-ebf466090e7f}">
+		<property name="assetPath">
+			<value>NPC/Ame 3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>5.7527664399092968</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7f654675-6a29-4568-abf1-2ac3818ee7a7}</destination>
+		</relationship>
+	</object>
+</objects>

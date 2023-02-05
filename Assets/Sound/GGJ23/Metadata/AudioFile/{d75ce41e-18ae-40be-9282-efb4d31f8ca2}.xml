@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{d75ce41e-18ae-40be-9282-efb4d31f8ca2}">
+		<property name="assetPath">
+			<value>Ambs/AMB Neutron 8.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>11.683219954648527</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7f654675-6a29-4568-abf1-2ac3818ee7a7}</destination>
+		</relationship>
+	</object>
+</objects>

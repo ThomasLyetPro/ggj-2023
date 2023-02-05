@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{4a82dbb3-2e02-45a6-9da0-b0bd32cfa16d}">
+		<property name="assetPath">
+			<value>Ambs/AMB Vent Vener.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>170.02471655328799</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7f654675-6a29-4568-abf1-2ac3818ee7a7}</destination>
+		</relationship>
+	</object>
+</objects>
