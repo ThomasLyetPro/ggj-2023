@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using AspectGgj2023.Gameboard;
+
 public class GameManager : MonoBehaviour
 {
     public enum GamePhase { Phase1, Phase2, Pause, Defeat, Victory }
@@ -114,5 +116,7 @@ public class GameManager : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene(); 
         SceneManager.LoadScene(scene.name);
+
+        DestinationTreeTile.ResetWinningCondition();
     }
 }

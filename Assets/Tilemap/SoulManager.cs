@@ -14,6 +14,9 @@ namespace AspectGgj2023.Gameboard
         private TileManager tileManager;
 
         [SerializeField]
+        private GameManager gameManager;
+
+        [SerializeField]
         private Vector3Int tilePos = new Vector3Int(0,0,0);
 
         private int connectionOrigin = 0;
@@ -23,6 +26,8 @@ namespace AspectGgj2023.Gameboard
         // Start is called before the first frame update
         void Start()
         {
+            Debug.Assert(tileManager != null);
+            Debug.Assert(gameManager != null);
         }
 
         // Update is called once per frame
@@ -85,6 +90,15 @@ namespace AspectGgj2023.Gameboard
                     }
                     StartCoroutine(Travel(count));
                 }
+            }
+
+            else if (currentTile is DestinationTreeTile)
+            {
+                if ((currentTile as DestinationTreeTile).AddSalvagedSoul())
+                {
+                    gameManager.TriggerVictory();
+                }
+                Destroy(this.gameObject);
             }
 
         }
