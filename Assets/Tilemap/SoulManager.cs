@@ -7,8 +7,6 @@ namespace AspectGgj2023.Gameboard
 {
     public class SoulManager : MonoBehaviour
     {
-
-
         # region Internal references
         [SerializeField]
         private TileManager tileManager;
@@ -19,6 +17,9 @@ namespace AspectGgj2023.Gameboard
         [SerializeField]
         private Vector3Int tilePos = new Vector3Int(0,0,0);
 
+        [SerializeField]
+        private SpriteRenderer spriteRenderer;
+
         private int connectionOrigin = 0;
 
         # endregion
@@ -28,6 +29,8 @@ namespace AspectGgj2023.Gameboard
         {
             Debug.Assert(tileManager != null);
             Debug.Assert(gameManager != null);
+
+            spriteRenderer.enabled = false;
         }
 
         // Update is called once per frame
@@ -37,7 +40,9 @@ namespace AspectGgj2023.Gameboard
 
 
 
-            if(Input.GetKeyDown(KeyCode.LeftControl)){
+            if(Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                spriteRenderer.enabled = true;
                 StartCoroutine(Travel());
             }
         }

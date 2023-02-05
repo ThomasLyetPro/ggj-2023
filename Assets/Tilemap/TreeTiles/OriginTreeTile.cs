@@ -13,13 +13,12 @@ namespace AspectGgj2023.Gameboard
     /// </summary>
     public class OriginTreeTile : Tile
     {
-        static public int maxTreeId = 4;
-
         /// <summary>
         /// Id of the origin tree the tile represent
         /// </summary>
         [SerializeField]
         private int originTreeId = 1;
+        static public int maxTreeId = 4;
 
         public int GetOriginTreeId()
         {

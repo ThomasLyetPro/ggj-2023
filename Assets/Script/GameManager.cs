@@ -8,7 +8,7 @@ using AspectGgj2023.Gameboard;
 public class GameManager : MonoBehaviour
 {
     public enum GamePhase { Phase1, Phase2, Pause, Defeat, Victory }
-    public GamePhase currentGamePhase = GamePhase.Phase1;
+    public GamePhase currentGamePhase = GamePhase.Pause;
 
     [Header("Game Loop")]
     [SerializeField]

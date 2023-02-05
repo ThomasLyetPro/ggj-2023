@@ -74,15 +74,30 @@ namespace AspectGgj2023.Gameboard
 
             BoundsInt tilemapBounds = mainTilemap.cellBounds;
 
-            // Iterate through all the possible tiles in the tilemap
-            foreach (var point in tilemapBounds.allPositionsWithin)
+            // Add the tiles already there to the table of tiles origins
+            List<Vector3Int> positionsAlreadyFilled = new List<Vector3Int>();
+            foreach (var position in tilemapBounds.allPositionsWithin)
             {
-                
-                OriginTreeTile tile = mainTilemap.GetTile(point) as OriginTreeTile;
-                if (tile) 
+                Tile tile = mainTilemap.GetTile<Tile>(position);
+
+                PlaceableTile placeableTile = tile as PlaceableTile;
+                if (placeableTile)
                 {
-                    originTreeIds[point] = tile.GetOriginTreeId();
+                    originTreeIds[position] = placeableTile.originTreeId;
+                    positionsAlreadyFilled.Add(position);
                 }
+
+                OriginTreeTile originTile = tile as OriginTreeTile;
+                if (originTile) 
+                {
+                    originTreeIds[position] = originTile.GetOriginTreeId();
+                }
+            }
+
+            foreach (Vector3Int tilePosition in positionsAlreadyFilled)
+            {
+                PlaceableTile placeableTile = mainTilemap.GetTile<PlaceableTile>(tilePosition);
+                CheckForPath(tilePosition, placeableTile);
             }
         }
 
@@ -118,6 +133,7 @@ namespace AspectGgj2023.Gameboard
             if (Input.GetMouseButtonDown(0))
             {
                 mainTilemap.SetTile(cellPosition, selectedTile);
+                mainTilemap.RefreshAllTiles();
 
                 // Set the default tree ID of the tile and try to connect it to its neighbours
                 originTreeIds[cellPosition] = selectedTile.originTreeId;
@@ -389,10 +405,10 @@ namespace AspectGgj2023.Gameboard
             // Iterate through all the possible tiles in the tilemap
             foreach (var point in tilemapBounds.allPositionsWithin)
             {
-                PlaceableTile tile = mainTilemap.GetTile(point) as PlaceableTile;
+                Tile tile = mainTilemap.GetTile<Tile>(point);
 
                 // Not a placeable tile: we don't
-                if (tile is null)
+                if (!(tile as PlaceableTile) || !(tile as OriginTreeTile))
                 {
                     continue;
                 }
