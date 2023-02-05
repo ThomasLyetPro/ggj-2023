@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.EventSystems;
 
 namespace AspectGgj2023.Gameboard
 {
@@ -93,8 +94,8 @@ namespace AspectGgj2023.Gameboard
             // Change the selected tile using the keyboard
             GetSelectedTileDebug(ref selectedTile);
 
-            // No tile selected: nothing to place and stop there
-            if (!selectedTile)
+            // No tile selected or hovering UI: nothing to place and stop there
+            if (!selectedTile || IsPointerOverUIElement())
             {
                 previewTilemap.ClearAllTiles();
                 return; 
@@ -162,6 +163,36 @@ namespace AspectGgj2023.Gameboard
         public bool GameIsPaused()
         {
             return gameManager && gameManager.currentGamePhase != GameManager.GamePhase.Phase1;
+        }
+
+        //Returns 'true' if we touched or hovering on Unity UI element.
+        public bool IsPointerOverUIElement()
+        {
+            return IsPointerOverUIElement(GetEventSystemRaycastResults());
+        }
+    
+    
+        //Returns 'true' if we touched or hovering on Unity UI element.
+        private bool IsPointerOverUIElement(List<RaycastResult> eventSystemRaysastResults)
+        {
+            for (int index = 0; index < eventSystemRaysastResults.Count; index++)
+            {
+                RaycastResult curRaysastResult = eventSystemRaysastResults[index];
+                if (curRaysastResult.gameObject.layer == LayerMask.NameToLayer("UI"));
+                    return true;
+            }
+            return false;
+        }
+    
+    
+        //Gets all event system raycast results of current mouse or touch position.
+        static List<RaycastResult> GetEventSystemRaycastResults()
+        {
+            PointerEventData eventData = new PointerEventData(EventSystem.current);
+            eventData.position = Input.mousePosition;
+            List<RaycastResult> raysastResults = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventData, raysastResults);
+            return raysastResults;
         }
 
         # region Path connections management
