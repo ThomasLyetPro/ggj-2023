@@ -52,7 +52,7 @@ namespace AspectGgj2023.Gameboard
                 for (int i = 1; i <= 4; i ++)
                 {
                     Vector3Int neighbourgPos = tileManager.GetConnectedPosition(tilePos, i);
-                    if(tileManager.IsConnectable(neighbourgPos, connectionOrigin)) {
+                    if(tileManager.IsConnectable(neighbourgPos, i)) {
                         possibleConnections.Add(i);
                         possiblePaths.Add(neighbourgPos);
                     }
@@ -61,7 +61,11 @@ namespace AspectGgj2023.Gameboard
                 int nextTileindex = Random.Range(0, possiblePaths.Count);
 
                 tilePos = possiblePaths[nextTileindex];
-                connectionOrigin = Mathf.Abs(possibleConnections[nextTileindex] - 2);
+                if(possibleConnections[nextTileindex] > 2){
+                    connectionOrigin = possibleConnections[nextTileindex] - 2;
+                } else {
+                    connectionOrigin = possibleConnections[nextTileindex] + 2;
+                }
                 StartCoroutine(Travel(count));
             }
 
@@ -72,13 +76,7 @@ namespace AspectGgj2023.Gameboard
                 int nextConnections = currentPlaceableTile.getOpposedConnection(connectionOrigin);
 
                 if(tileManager.goToNextTile(tilePos, connectionOrigin).HasValue){
-                    Debug.Log("------------------------------------------------");
-                    Debug.Log("Previous position " + tilePos);
-                    Debug.Log("I come from : " + connectionOrigin);
                     tilePos = tileManager.goToNextTile(tilePos, connectionOrigin).Value;
-                    Debug.Log("next pos :" + tilePos);
-                    Debug.Log("I go towards connection :" + nextConnections);
-                    Debug.Log("------------------------------------------------");
 
                     if(nextConnections > 2){
                         connectionOrigin = nextConnections - 2;
