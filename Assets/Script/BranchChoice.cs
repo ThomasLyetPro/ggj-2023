@@ -32,7 +32,7 @@ public class BranchChoice : MonoBehaviour
         // we place ">>>" on the button as a "Continue" symbol 
         if (string.IsNullOrEmpty(buttonText.text))
         {
-            buttonText.text = ">>>";
+            buttonText.text = "Next";
         }
     }
 

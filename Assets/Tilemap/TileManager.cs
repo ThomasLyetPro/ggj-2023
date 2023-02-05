@@ -15,7 +15,7 @@ namespace AspectGgj2023.Gameboard
         private Tilemap previewTilemap;
 
         [SerializeField]
-        private GameObject helpCanvas;
+        private GameManager gameManager;
 
         [Header("Available tiles")]
         [SerializeField]
@@ -157,9 +157,10 @@ namespace AspectGgj2023.Gameboard
         /// <summary>
         /// Check if the game is paused
         /// </summary>
+        /// 
         public bool GameIsPaused()
         {
-            return helpCanvas && helpCanvas.activeSelf;
+            return gameManager && gameManager.currentGamePhase != GameManager.GamePhase.Phase1;
         }
 
         # region Path connections management
@@ -402,6 +403,27 @@ namespace AspectGgj2023.Gameboard
                 selectedTile = tileTRTL;
             }
         }
+
+        public void OnStraightTileButtonClick()
+        {
+            if (selectedTile == tileTRBL)
+                selectedTile = tileTLBR;
+            else
+                selectedTile = tileTRBL;
+        }
+
+        public void OnCurveTileButtonClick()
+        {
+            if (selectedTile == tileBLBR)
+                selectedTile = tileTRBR;
+            else if (selectedTile == tileTRBR)
+                selectedTile = tileTRTL;
+            else if (selectedTile == tileTRTL)
+                selectedTile = tileTLBL;
+            else
+                selectedTile = tileBLBR;
+        }
+
         # endregion
     }
 }
