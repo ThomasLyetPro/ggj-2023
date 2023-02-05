@@ -6,7 +6,7 @@
     "set_UseScriptSupport": "True",
     "ExportVersion": "1.2",
     "ObjectDefinitionsHash": "271F64153F268C1FED6CE57D40DE67F6A0338949007C66E0DAD9F8006E72F445",
-    "ScriptFragmentsHash": "5496076800"
+    "ScriptFragmentsHash": "4011789684"
   },
   "Project": {
     "Name": "Test_Dialogues_GGJ2023",
@@ -2441,88 +2441,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
-                    },
-                    "Label": "",
-                    "TargetPin": "0x01000000000003AC",
-                    "Target": "0x01000000000003A9"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "Type": "Dialogue",
-          "Properties": {
-            "TechnicalName": "Dlg_DC4DA466",
-            "Id": "0x01000000000003A9",
-            "Parent": "0x01000000000001B9",
-            "Attachments": [
-              "0x010000000000010F"
-            ],
-            "DisplayName": "The Jade",
-            "PreviewImage": {
-              "ViewBox": {
-                "x": 0.0,
-                "y": 0.0,
-                "w": 0.0,
-                "h": 0.0
-              },
-              "Mode": "FromAsset",
-              "Asset": "0x0000000000000000"
-            },
-            "Color": {
-              "r": 0.577580452,
-              "g": 0.7605245,
-              "b": 0.7991027
-            },
-            "Text": "How Jade work in the game",
-            "ExternalId": "",
-            "Position": {
-              "x": 517.0,
-              "y": 25.0
-            },
-            "ZIndex": 4.0,
-            "Size": {
-              "w": 291.0,
-              "h": 200.0
-            },
-            "ShortId": 3696075878,
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x01000000000003AC",
-                "Owner": "0x01000000000003A9",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
-                    },
-                    "Label": "",
-                    "TargetPin": "0x01000000000003FF",
-                    "Target": "0x01000000000003FE"
-                  }
-                ]
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x01000000000003AD",
-                "Owner": "0x01000000000003A9",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
+                      "r": 0.5764706,
+                      "g": 0.75686276,
+                      "b": 0.8
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000003B5",
@@ -2561,7 +2482,7 @@
             "Text": "How Phases work in the game",
             "ExternalId": "",
             "Position": {
-              "x": 842.0,
+              "x": 517.0,
               "y": 25.0
             },
             "ZIndex": 6.0,
@@ -2719,7 +2640,7 @@
             "Text": "How to Lose in the game",
             "ExternalId": "",
             "Position": {
-              "x": 1192.0,
+              "x": 842.0,
               "y": 25.0
             },
             "ZIndex": 10.0,
@@ -2869,9 +2790,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x0100000000000664",
@@ -2953,7 +2874,7 @@
               "g": 0.7605245,
               "b": 0.7991027
             },
-            "Text": "<size=16>That path is made of different Roots. Each one can only be placed on an empty spot. Once placed, it can be rotated at will.</size>",
+            "Text": "<size=16>That path is made of different Roots. Each one can only be placed on an empty spot</size><size=16> or replace an other Root.</size>",
             "ExternalId": "",
             "Position": {
               "x": 475.0,
@@ -2981,62 +2902,6 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
-                    },
-                    "Label": "",
-                    "TargetPin": "0x01000000000003F9",
-                    "Target": "0x01000000000003F6"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "Type": "DialogueFragment",
-          "Properties": {
-            "TechnicalName": "DFr_6BF577C8",
-            "Id": "0x01000000000003F6",
-            "Parent": "0x01000000000003A0",
-            "MenuText": "",
-            "StageDirections": "",
-            "Speaker": "0x010000000000010F",
-            "SplitHeight": 64.0,
-            "Color": {
-              "r": 0.577580452,
-              "g": 0.7605245,
-              "b": 0.7991027
-            },
-            "Text": "<size=16>Roots are directly linked to the Tree or the other adjacent Root. Only the Souls coming from that Tree can walk through them.</size>",
-            "ExternalId": "",
-            "Position": {
-              "x": 750.0,
-              "y": 375.0
-            },
-            "ZIndex": 3.0,
-            "Size": {
-              "w": 225.0,
-              "h": 200.0
-            },
-            "ShortId": 1811249096,
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x01000000000003F9",
-                "Owner": "0x01000000000003F6"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x01000000000003FA",
-                "Owner": "0x01000000000003F6",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
                       "r": 0.5764706,
                       "g": 0.75686276,
                       "b": 0.8
@@ -3044,174 +2909,6 @@
                     "Label": "",
                     "TargetPin": "0x0100000000000675",
                     "Target": "0x0100000000000673"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "Type": "DialogueFragment",
-          "Properties": {
-            "TechnicalName": "DFr_1ABBA975",
-            "Id": "0x01000000000003FE",
-            "Parent": "0x01000000000003A9",
-            "MenuText": "",
-            "StageDirections": "",
-            "Speaker": "0x010000000000010F",
-            "SplitHeight": 64.0,
-            "Color": {
-              "r": 0.577580452,
-              "g": 0.7605245,
-              "b": 0.7991027
-            },
-            "Text": "<size=16>Each Root placed in the World consumes Jade. They can be removed from the World to get Jade back.</size>",
-            "ExternalId": "",
-            "Position": {
-              "x": 225.0,
-              "y": 425.0
-            },
-            "ZIndex": 3.0,
-            "Size": {
-              "w": 225.0,
-              "h": 200.0
-            },
-            "ShortId": 448506229,
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x01000000000003FF",
-                "Owner": "0x01000000000003FE"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000000400",
-                "Owner": "0x01000000000003FE",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
-                    },
-                    "Label": "",
-                    "TargetPin": "0x0100000000000407",
-                    "Target": "0x0100000000000404"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "Type": "DialogueFragment",
-          "Properties": {
-            "TechnicalName": "DFr_FD09D6B7",
-            "Id": "0x0100000000000404",
-            "Parent": "0x01000000000003A9",
-            "MenuText": "",
-            "StageDirections": "",
-            "Speaker": "0x010000000000010F",
-            "SplitHeight": 64.0,
-            "Color": {
-              "r": 0.577580452,
-              "g": 0.7605245,
-              "b": 0.7991027
-            },
-            "Text": "<size=16>Once a Soul reached Yaxche, they disappear into the Underworld, giving a good amount of Jade. They also become a Salvaged Soul.</size>",
-            "ExternalId": "",
-            "Position": {
-              "x": 500.0,
-              "y": 425.0
-            },
-            "ZIndex": 1.0,
-            "Size": {
-              "w": 225.0,
-              "h": 200.0
-            },
-            "ShortId": 4245280439,
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000000407",
-                "Owner": "0x0100000000000404"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000000408",
-                "Owner": "0x0100000000000404",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
-                    },
-                    "Label": "",
-                    "TargetPin": "0x010000000000040E",
-                    "Target": "0x010000000000040B"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "Type": "DialogueFragment",
-          "Properties": {
-            "TechnicalName": "DFr_97B9E3B5",
-            "Id": "0x010000000000040B",
-            "Parent": "0x01000000000003A9",
-            "MenuText": "",
-            "StageDirections": "",
-            "Speaker": "0x010000000000010F",
-            "SplitHeight": 64.0,
-            "Color": {
-              "r": 0.577580452,
-              "g": 0.7605245,
-              "b": 0.7991027
-            },
-            "Text": "<size=16>To gain more Jade, Souls should pass through Cenotes</size><size=16>, natural wells of the Underworld, </size><size=16> which are already present in the World. But be careful as these resources are limited, and Cenotes will close themselves after a few passages.</size>",
-            "ExternalId": "",
-            "Position": {
-              "x": 775.0,
-              "y": 425.0
-            },
-            "ZIndex": 3.0,
-            "Size": {
-              "w": 225.0,
-              "h": 200.0
-            },
-            "ShortId": 2545542069,
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x010000000000040E",
-                "Owner": "0x010000000000040B"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x010000000000040F",
-                "Owner": "0x010000000000040B",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
-                    },
-                    "Label": "",
-                    "TargetPin": "0x0100000000000681",
-                    "Target": "0x010000000000067F"
                   }
                 ]
               }
@@ -3233,7 +2930,7 @@
               "g": 0.7605245,
               "b": 0.7991027
             },
-            "Text": "<size=16>Each Year is divided in two Phases : The Construction Phase, and the Travel Phase.</size>",
+            "Text": "<size=16>Each Year is divided in two Phases : The Construction Phase, and the </size><size=16>Journey</size><size=16> Phase.</size>",
             "ExternalId": "",
             "Position": {
               "x": 200.0,
@@ -3289,7 +2986,7 @@
               "g": 0.7605245,
               "b": 0.7991027
             },
-            "Text": "<size=16>During the Construction Phase, Roots can be placed, removed and rotated at will based on the Jade available.</size>",
+            "Text": "<size=16>During the Construction Phase, Roots can be placed</size><size=16> and modified </size><size=16>at will</size><size=16>.</size>",
             "ExternalId": "",
             "Position": {
               "x": 475.0,
@@ -3345,7 +3042,7 @@
               "g": 0.7605245,
               "b": 0.7991027
             },
-            "Text": "<size=16>Then comes the Travel Phase : Souls will walk through the passage they were given to the closest reachable Cenote or Yaxche itself if there is none on their way.</size>",
+            "Text": "<size=16>Then comes the </size><size=16>Journey</size><size=16> Phase : Souls will walk through the passage they were given </size><size=16>to </size><size=16>Yaxche</size><size=16>.</size>",
             "ExternalId": "",
             "Position": {
               "x": 750.0,
@@ -3369,62 +3066,6 @@
                 "Text": "",
                 "Id": "0x010000000000042E",
                 "Owner": "0x010000000000042A",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
-                    },
-                    "Label": "",
-                    "TargetPin": "0x0100000000000434",
-                    "Target": "0x0100000000000431"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "Type": "DialogueFragment",
-          "Properties": {
-            "TechnicalName": "DFr_C3820F9A",
-            "Id": "0x0100000000000431",
-            "Parent": "0x01000000000003B2",
-            "MenuText": "",
-            "StageDirections": "",
-            "Speaker": "0x010000000000010F",
-            "SplitHeight": 64.0,
-            "Color": {
-              "r": 0.577580452,
-              "g": 0.7605245,
-              "b": 0.7991027
-            },
-            "Text": "<size=16>Again, beware. Souls have a limited time available to reach Yaxche before they disappear into the void. Then, they become Lost Souls and can never be saved.</size>",
-            "ExternalId": "",
-            "Position": {
-              "x": 1025.0,
-              "y": 425.0
-            },
-            "ZIndex": 5.0,
-            "Size": {
-              "w": 225.0,
-              "h": 200.0
-            },
-            "ShortId": 3280080794,
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000000434",
-                "Owner": "0x0100000000000431"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000000435",
-                "Owner": "0x0100000000000431",
                 "Connections": [
                   {
                     "Color": {
@@ -3485,62 +3126,6 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
-                    },
-                    "Label": "",
-                    "TargetPin": "0x01000000000003D6",
-                    "Target": "0x01000000000003D3"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "Type": "DialogueFragment",
-          "Properties": {
-            "TechnicalName": "DFr_EDBCD685",
-            "Id": "0x01000000000003D3",
-            "Parent": "0x01000000000003BA",
-            "MenuText": "",
-            "StageDirections": "",
-            "Speaker": "0x010000000000010F",
-            "SplitHeight": 64.0,
-            "Color": {
-              "r": 0.577580452,
-              "g": 0.7605245,
-              "b": 0.7991027
-            },
-            "Text": "<size=16>Unfortunately</size><size=16>, </size><size=16>the Lord of </size><size=16>the Underworld</size><size=16> is not inclined to accept anyone without the proper offerings. For that reason, I will need your help to show them the way.</size>",
-            "ExternalId": "",
-            "Position": {
-              "x": 725.0,
-              "y": 400.0
-            },
-            "ZIndex": 1.0,
-            "Size": {
-              "w": 225.0,
-              "h": 200.0
-            },
-            "ShortId": 3988575877,
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x01000000000003D6",
-                "Owner": "0x01000000000003D3"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x01000000000003D7",
-                "Owner": "0x01000000000003D3",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
                       "r": 0.5764706,
                       "g": 0.75686276,
                       "b": 0.8
@@ -3569,7 +3154,7 @@
               "g": 0.7605245,
               "b": 0.7991027
             },
-            "Text": "<size=16>As long as we managed to salvage enough Souls, the cycle will continue. But it will end if we ever fail to secure too many of them, and the number of Lost Souls becomes too important.</size>",
+            "Text": "<size=16>We achieve our goal once all paths have been linked from the Trees to Yaxche and the Souls are free to travel through.</size>",
             "ExternalId": "",
             "Position": {
               "x": 372.0,
@@ -3597,74 +3182,15 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x0100000000000699",
                     "Target": "0x0100000000000697"
                   }
                 ]
-              }
-            ]
-          }
-        },
-        {
-          "Type": "Condition",
-          "Properties": {
-            "TechnicalName": "Cnd_4601CBF3",
-            "Id": "0x010000000000063F",
-            "Parent": "0x01000000000003BA",
-            "DisplayName": "GGJ_Variables.introTutoIsRead == false",
-            "Text": "",
-            "ExternalId": "",
-            "Position": {
-              "x": 1025.0,
-              "y": 450.0
-            },
-            "ZIndex": 4.0,
-            "Size": {
-              "w": 225.0,
-              "h": 100.0
-            },
-            "ShortId": 1174522867,
-            "Expression": "GGJ_Variables.introTutoIsRead == false",
-            "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
-            },
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000000641",
-                "Owner": "0x010000000000063F"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000000642",
-                "Owner": "0x010000000000063F",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
-                    },
-                    "Label": "",
-                    "TargetPin": "0x0100000000000659",
-                    "Target": "0x0100000000000657"
-                  }
-                ]
-              },
-              {
-                "Text": "",
-                "Id": "0x0100000000000643",
-                "Owner": "0x010000000000063F"
               }
             ]
           }
@@ -3690,9 +3216,9 @@
             "ShortId": 3104593196,
             "Expression": "GGJ_Variables.treeTutoIsRead == false",
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "InputPins": [
               {
@@ -3710,9 +3236,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x0100000000000669",
@@ -3738,7 +3264,7 @@
             "Text": "",
             "ExternalId": "",
             "Position": {
-              "x": 1025.0,
+              "x": 750.0,
               "y": 425.0
             },
             "ZIndex": 4.0,
@@ -3749,9 +3275,9 @@
             "ShortId": 2433518628,
             "Expression": "GGJ_Variables.tilesTutoIsRead == false",
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "InputPins": [
               {
@@ -3769,9 +3295,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x010000000000067A",
@@ -3790,65 +3316,6 @@
         {
           "Type": "Condition",
           "Properties": {
-            "TechnicalName": "Cnd_6ED473B1",
-            "Id": "0x010000000000067F",
-            "Parent": "0x01000000000003A9",
-            "DisplayName": "GGJ_Variables.jadeTutoIsRead == false",
-            "Text": "",
-            "ExternalId": "",
-            "Position": {
-              "x": 1050.0,
-              "y": 475.0
-            },
-            "ZIndex": 4.0,
-            "Size": {
-              "w": 225.0,
-              "h": 100.0
-            },
-            "ShortId": 1859417009,
-            "Expression": "GGJ_Variables.jadeTutoIsRead == false",
-            "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
-            },
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000000681",
-                "Owner": "0x010000000000067F"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000000682",
-                "Owner": "0x010000000000067F",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
-                    },
-                    "Label": "",
-                    "TargetPin": "0x0100000000000686",
-                    "Target": "0x0100000000000684"
-                  }
-                ]
-              },
-              {
-                "Text": "",
-                "Id": "0x0100000000000683",
-                "Owner": "0x010000000000067F"
-              }
-            ]
-          }
-        },
-        {
-          "Type": "Condition",
-          "Properties": {
             "TechnicalName": "Cnd_A9B00B5F",
             "Id": "0x010000000000068B",
             "Parent": "0x01000000000003B2",
@@ -3856,7 +3323,7 @@
             "Text": "",
             "ExternalId": "",
             "Position": {
-              "x": 1300.0,
+              "x": 1025.0,
               "y": 475.0
             },
             "ZIndex": 4.0,
@@ -3867,9 +3334,9 @@
             "ShortId": 2846886751,
             "Expression": "GGJ_Variables.phasesTutoIsRead == false",
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "InputPins": [
               {
@@ -3887,9 +3354,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x0100000000000692",
@@ -3901,6 +3368,65 @@
                 "Text": "",
                 "Id": "0x010000000000068F",
                 "Owner": "0x010000000000068B"
+              }
+            ]
+          }
+        },
+        {
+          "Type": "Condition",
+          "Properties": {
+            "TechnicalName": "Cnd_4601CBF3",
+            "Id": "0x010000000000063F",
+            "Parent": "0x01000000000003BA",
+            "DisplayName": "GGJ_Variables.introTutoIsRead == false",
+            "Text": "",
+            "ExternalId": "",
+            "Position": {
+              "x": 700.0,
+              "y": 450.0
+            },
+            "ZIndex": 4.0,
+            "Size": {
+              "w": 225.0,
+              "h": 100.0
+            },
+            "ShortId": 1174522867,
+            "Expression": "GGJ_Variables.introTutoIsRead == false",
+            "Color": {
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
+            },
+            "InputPins": [
+              {
+                "Text": "",
+                "Id": "0x0100000000000641",
+                "Owner": "0x010000000000063F"
+              }
+            ],
+            "OutputPins": [
+              {
+                "Text": "",
+                "Id": "0x0100000000000642",
+                "Owner": "0x010000000000063F",
+                "Connections": [
+                  {
+                    "Color": {
+                      "a": 1.0,
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
+                    },
+                    "Label": "",
+                    "TargetPin": "0x0100000000000659",
+                    "Target": "0x0100000000000657"
+                  }
+                ]
+              },
+              {
+                "Text": "",
+                "Id": "0x0100000000000643",
+                "Owner": "0x010000000000063F"
               }
             ]
           }
@@ -3926,9 +3452,9 @@
             "ShortId": 481430259,
             "Expression": "GGJ_Variables.conditionsTutoIsRead == false",
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "InputPins": [
               {
@@ -3946,9 +3472,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x010000000000069E",
@@ -3960,60 +3486,6 @@
                 "Text": "",
                 "Id": "0x010000000000069B",
                 "Owner": "0x0100000000000697"
-              }
-            ]
-          }
-        },
-        {
-          "Type": "Instruction",
-          "Properties": {
-            "TechnicalName": "Ins_94B1EC7B",
-            "Id": "0x0100000000000657",
-            "Parent": "0x01000000000003BA",
-            "DisplayName": "GGJ_Variables.introTutoIsRead = true",
-            "Text": "",
-            "ExternalId": "",
-            "Position": {
-              "x": 1300.0,
-              "y": 450.0
-            },
-            "ZIndex": 6.0,
-            "Size": {
-              "w": 225.0,
-              "h": 100.0
-            },
-            "ShortId": 2494688379,
-            "Expression": "GGJ_Variables.introTutoIsRead = true",
-            "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
-            },
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000000659",
-                "Owner": "0x0100000000000657"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x010000000000065A",
-                "Owner": "0x0100000000000657",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
-                    },
-                    "Label": "",
-                    "TargetPin": "0x01000000000003BE",
-                    "Target": "0x01000000000003BA"
-                  }
-                ]
               }
             ]
           }
@@ -4039,9 +3511,9 @@
             "ShortId": 3817620825,
             "Expression": "GGJ_Variables.treeTutoIsRead = true",
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "InputPins": [
               {
@@ -4059,9 +3531,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000001D2",
@@ -4082,7 +3554,7 @@
             "Text": "",
             "ExternalId": "",
             "Position": {
-              "x": 1300.0,
+              "x": 1025.0,
               "y": 425.0
             },
             "ZIndex": 6.0,
@@ -4093,9 +3565,9 @@
             "ShortId": 3395794864,
             "Expression": "GGJ_Variables.tilesTutoIsRead = true",
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "InputPins": [
               {
@@ -4113,67 +3585,13 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000003A4",
                     "Target": "0x01000000000003A0"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "Type": "Instruction",
-          "Properties": {
-            "TechnicalName": "Ins_46A19815",
-            "Id": "0x0100000000000684",
-            "Parent": "0x01000000000003A9",
-            "DisplayName": "GGJ_Variables.jadeTutoIsRead = true",
-            "Text": "",
-            "ExternalId": "",
-            "Position": {
-              "x": 1325.0,
-              "y": 475.0
-            },
-            "ZIndex": 6.0,
-            "Size": {
-              "w": 225.0,
-              "h": 100.0
-            },
-            "ShortId": 1184995349,
-            "Expression": "GGJ_Variables.jadeTutoIsRead = true",
-            "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
-            },
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000000686",
-                "Owner": "0x0100000000000684"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000000687",
-                "Owner": "0x0100000000000684",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
-                    },
-                    "Label": "",
-                    "TargetPin": "0x01000000000003AD",
-                    "Target": "0x01000000000003A9"
                   }
                 ]
               }
@@ -4190,7 +3608,7 @@
             "Text": "",
             "ExternalId": "",
             "Position": {
-              "x": 1575.0,
+              "x": 1300.0,
               "y": 475.0
             },
             "ZIndex": 6.0,
@@ -4201,9 +3619,9 @@
             "ShortId": 3348338283,
             "Expression": "GGJ_Variables.phasesTutoIsRead = true",
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "InputPins": [
               {
@@ -4221,13 +3639,67 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000003B6",
                     "Target": "0x01000000000003B2"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Type": "Instruction",
+          "Properties": {
+            "TechnicalName": "Ins_94B1EC7B",
+            "Id": "0x0100000000000657",
+            "Parent": "0x01000000000003BA",
+            "DisplayName": "GGJ_Variables.introTutoIsRead = true",
+            "Text": "",
+            "ExternalId": "",
+            "Position": {
+              "x": 975.0,
+              "y": 450.0
+            },
+            "ZIndex": 6.0,
+            "Size": {
+              "w": 225.0,
+              "h": 100.0
+            },
+            "ShortId": 2494688379,
+            "Expression": "GGJ_Variables.introTutoIsRead = true",
+            "Color": {
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
+            },
+            "InputPins": [
+              {
+                "Text": "",
+                "Id": "0x0100000000000659",
+                "Owner": "0x0100000000000657"
+              }
+            ],
+            "OutputPins": [
+              {
+                "Text": "",
+                "Id": "0x010000000000065A",
+                "Owner": "0x0100000000000657",
+                "Connections": [
+                  {
+                    "Color": {
+                      "a": 1.0,
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
+                    },
+                    "Label": "",
+                    "TargetPin": "0x01000000000003BE",
+                    "Target": "0x01000000000003BA"
                   }
                 ]
               }
@@ -4255,9 +3727,9 @@
             "ShortId": 274954732,
             "Expression": "GGJ_Variables.conditionsTutoIsRead = true",
             "Color": {
-              "r": 0.5764706,
-              "g": 0.75686276,
-              "b": 0.8
+              "r": 0.577580452,
+              "g": 0.7605245,
+              "b": 0.7991027
             },
             "InputPins": [
               {
@@ -4275,9 +3747,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.5764706,
-                      "g": 0.75686276,
-                      "b": 0.8
+                      "r": 0.577580452,
+                      "g": 0.7605245,
+                      "b": 0.7991027
                     },
                     "Label": "",
                     "TargetPin": "0x01000000000003C8",
@@ -4320,7 +3792,7 @@
                 "h": 0.0
               },
               "Mode": "FromAsset",
-              "Asset": "0x010000000000039C"
+              "Asset": "0x01000000000006A3"
             },
             "ShortId": 757845389
           }
@@ -4330,11 +3802,11 @@
           "AssetRef": "Assets/Images/maya_god.png",
           "Category": "Image",
           "Properties": {
-            "TechnicalName": "Ast_598C0DE8",
-            "Id": "0x010000000000039C",
+            "TechnicalName": "Ast_161B2D86",
+            "Id": "0x01000000000006A3",
             "Parent": "0x0100000000000105",
             "DisplayName": "maya god",
-            "Filename": "maya_god(029C).png",
+            "Filename": "maya_god(07A3).png",
             "OriginalSource": "file:///F:/Téléchargements/Images/maya god.png",
             "PreviewImage": {
               "ViewBox": {
@@ -4345,9 +3817,9 @@
               }
             },
             "Color": {
-              "r": 0.577580452,
-              "g": 0.7605245,
-              "b": 0.7991027
+              "r": 0.5764706,
+              "g": 0.75686276,
+              "b": 0.8
             },
             "Text": "",
             "ExternalId": "",
@@ -4360,7 +3832,7 @@
               "w": 256.0,
               "h": 196.0
             },
-            "ShortId": 1502350824
+            "ShortId": 370879878
           }
         },
         {
@@ -4487,11 +3959,6 @@
                     "Type": "DialogueFragment"
                   },
                   {
-                    "Id": "0x01000000000003D3",
-                    "TechnicalName": "DFr_EDBCD685",
-                    "Type": "DialogueFragment"
-                  },
-                  {
                     "Id": "0x010000000000063F",
                     "TechnicalName": "Cnd_4601CBF3",
                     "Type": "Condition"
@@ -4546,11 +4013,6 @@
                     "Type": "DialogueFragment"
                   },
                   {
-                    "Id": "0x01000000000003F6",
-                    "TechnicalName": "DFr_6BF577C8",
-                    "Type": "DialogueFragment"
-                  },
-                  {
                     "Id": "0x0100000000000673",
                     "TechnicalName": "Cnd_910C8C24",
                     "Type": "Condition"
@@ -4558,38 +4020,6 @@
                   {
                     "Id": "0x0100000000000678",
                     "TechnicalName": "Ins_CA67B7B0",
-                    "Type": "Instruction"
-                  }
-                ]
-              },
-              {
-                "Id": "0x01000000000003A9",
-                "TechnicalName": "Dlg_DC4DA466",
-                "Type": "Dialogue",
-                "Children": [
-                  {
-                    "Id": "0x01000000000003FE",
-                    "TechnicalName": "DFr_1ABBA975",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x0100000000000404",
-                    "TechnicalName": "DFr_FD09D6B7",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x010000000000040B",
-                    "TechnicalName": "DFr_97B9E3B5",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x010000000000067F",
-                    "TechnicalName": "Cnd_6ED473B1",
-                    "Type": "Condition"
-                  },
-                  {
-                    "Id": "0x0100000000000684",
-                    "TechnicalName": "Ins_46A19815",
                     "Type": "Instruction"
                   }
                 ]
@@ -4612,11 +4042,6 @@
                   {
                     "Id": "0x010000000000042A",
                     "TechnicalName": "DFr_3507E713",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x0100000000000431",
-                    "TechnicalName": "DFr_C3820F9A",
                     "Type": "DialogueFragment"
                   },
                   {
@@ -4899,8 +4324,8 @@
             "Type": "AssetsUserFolder",
             "Children": [
               {
-                "Id": "0x010000000000039C",
-                "TechnicalName": "Ast_598C0DE8",
+                "Id": "0x01000000000006A3",
+                "TechnicalName": "Ast_161B2D86",
                 "Type": "Asset"
               }
             ]
