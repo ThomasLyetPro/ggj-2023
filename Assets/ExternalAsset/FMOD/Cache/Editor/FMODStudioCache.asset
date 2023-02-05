@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: Assets/Sound/GGJ23/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638111194055392176
+  lastModified: 638111205812279386
   FileSizes:
   - Name: Desktop
     Value: 812
@@ -97,7 +97,7 @@ MonoBehaviour:
   - {fileID: 7953550916589879510}
   StringsBanks:
   - {fileID: -5639387537771079057}
-  cacheTime: 638111194055392176
+  cacheTime: 638111205812279386
   cacheVersion: 131601
 --- !u!114 &7953550916589879510
 MonoBehaviour:
@@ -114,7 +114,7 @@ MonoBehaviour:
   Path: Assets/Sound/GGJ23/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638111194055382210
+  lastModified: 638111205812279386
   FileSizes:
   - Name: Desktop
     Value: 581280
