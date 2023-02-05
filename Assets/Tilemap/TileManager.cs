@@ -178,8 +178,10 @@ namespace AspectGgj2023.Gameboard
             for (int index = 0; index < eventSystemRaysastResults.Count; index++)
             {
                 RaycastResult curRaysastResult = eventSystemRaysastResults[index];
-                if (curRaysastResult.gameObject.layer == LayerMask.NameToLayer("UI"));
+                if (curRaysastResult.gameObject.layer == LayerMask.NameToLayer("UI"))
+                {
                     return true;
+                }
             }
             return false;
         }
