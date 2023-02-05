@@ -106,7 +106,7 @@ namespace AspectGgj2023.Gameboard
 
             // Display no preview and prevent placing if we're not on a PlaceableTile space
             TileBase tile = mainTilemap.GetTile(cellPosition);
-            if ((tile is StaticTile) || (tile is OriginTreeTile))
+            if ((tile is StaticTile) || (tile is OriginTreeTile) || (tile is DestinationTreeTile))
             {
                 previewTilemap.ClearAllTiles();
                 return;
