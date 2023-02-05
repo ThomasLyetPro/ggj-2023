@@ -77,9 +77,10 @@ namespace AspectGgj2023.Interface
                 Mathf.Clamp(newCameraPosition.y, minimumCameraOffset.y, maximumCameraOffset.y),
                 newCameraPosition.z
             );
-
-            float scrollWheelValue = Input.GetAxis("Mouse ScrollWheel");
-            cameraObject.orthographicSize = Mathf.Clamp(cameraObject.orthographicSize - scrollWheelValue, 2, 5);
+            if(Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)){
+                    float scrollWheelValue = Input.GetAxis("Mouse ScrollWheel");
+                    cameraObject.orthographicSize = Mathf.Clamp(cameraObject.orthographicSize - scrollWheelValue, 2, 5);
+            }
         }
     }
 

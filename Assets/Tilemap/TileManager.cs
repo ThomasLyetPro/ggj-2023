@@ -46,6 +46,8 @@ namespace AspectGgj2023.Gameboard
         /// </summary>
         private PlaceableTile selectedTile;
 
+
+        private int selectedTileIndex = 0;
         /// <summary>
         /// Table matching cell coordinates with the ID of its origin tree.
         /// </summary> 
@@ -127,15 +129,14 @@ namespace AspectGgj2023.Gameboard
             }
 
             // Manage the preview
-            else if (cellPosition != lastCellHovered)
-            {
-                // Delete the previous preview tile set and create the new one
-                previewTilemap.DeleteCells(lastCellHovered, new Vector3Int(1, 1, 1));
-                previewTilemap.SetTile(cellPosition, selectedTile);
 
-                // Remember the position
-                lastCellHovered = cellPosition;
-            }
+            // Delete the previous preview tile set and create the new one
+            previewTilemap.DeleteCells(lastCellHovered, new Vector3Int(1, 1, 1));
+            previewTilemap.SetTile(cellPosition, selectedTile);
+
+            // Remember the position
+            lastCellHovered = cellPosition;
+            
         }
 
         /// <summary>
@@ -150,6 +151,7 @@ namespace AspectGgj2023.Gameboard
             // Convert it to world position on the plane of game
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
             worldPosition.z = 0;
+            worldPosition.y -= 0.25f;
 
             // Return its value in tilemap space
             return mainTilemap.WorldToCell(worldPosition);
@@ -407,6 +409,26 @@ namespace AspectGgj2023.Gameboard
         /// </summary>
         private void GetSelectedTileDebug(ref PlaceableTile selectedTile)
         {
+            List<PlaceableTile> tileList = new List<PlaceableTile>();
+
+            tileList.Add(tileBLBR);
+            tileList.Add(tileTLBL);
+            tileList.Add(tileTRBL);
+            tileList.Add(tileTRBR);
+            tileList.Add(tileTLBR);
+            tileList.Add(tileTRTL);
+
+            if(! Input.GetKey(KeyCode.LeftControl) && ! Input.GetKey(KeyCode.RightControl)){
+                if( Input.GetAxis("Mouse ScrollWheel") > 0.001 ){
+                    selectedTileIndex = selectedTileIndex + 1 == tileList.Count ? 0 : selectedTileIndex + 1;
+                    selectedTile = tileList[selectedTileIndex];
+                }
+                if( Input.GetAxis("Mouse ScrollWheel") < -0.001 ){
+                    selectedTileIndex = selectedTileIndex == 0 ? tileList.Count - 1 : selectedTileIndex - 1;
+                    selectedTile = tileList[selectedTileIndex];
+                }
+            }
+
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 selectedTile = tileBLBR;
