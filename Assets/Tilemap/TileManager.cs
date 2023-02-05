@@ -96,7 +96,6 @@ namespace AspectGgj2023.Gameboard
             // No tile selected: nothing to place and stop there
             if (!selectedTile)
             {
-                Debug.Log("Nothing selected");
                 previewTilemap.ClearAllTiles();
                 return; 
             }
@@ -222,10 +221,13 @@ namespace AspectGgj2023.Gameboard
             PlaceableTile neutralTile = null;
             foreach (Vector3Int neighbourPosition in connectableNeighbours)
             {
-                // Check first if one of the nighbours is an origin tree tile
-                OriginTreeTile originTreeTile = mainTilemap.GetTile<OriginTreeTile>(neighbourPosition);
+                Tile genericTile = mainTilemap.GetTile<Tile>(neighbourPosition);
+
+                // Check first if one of the neighbours is an origin tree tile
+                OriginTreeTile originTreeTile = genericTile as OriginTreeTile;
                 if (originTreeTile)
                 {
+                    // We can't connected to an origin tree if we already come from a tree
                     if(newConnectionId != 0 )
                     {
                         return;
@@ -235,8 +237,7 @@ namespace AspectGgj2023.Gameboard
                     continue;
                 }
 
-                PlaceableTile connectedTile = mainTilemap.GetTile<PlaceableTile>(neighbourPosition);
-
+                PlaceableTile connectedTile = genericTile as PlaceableTile;
                 if(connectedTile && originTreeIds[neighbourPosition] != 0)
                 {
                     if(newConnectionId != 0 )
@@ -256,6 +257,28 @@ namespace AspectGgj2023.Gameboard
 
             originTreeIds[originPos] = newConnectionId;
 
+            // Check for possible connections to the destination tree now that we handled connections to an existing path to an origin
+            
+             foreach (Vector3Int neighbourPosition in connectableNeighbours)
+            {
+                DestinationTreeTile destinationTreeTile = mainTilemap.GetTile<DestinationTreeTile>(neighbourPosition);
+                if (destinationTreeTile)
+                {
+                    // We don't have anything to check if we connect a free tile to the destination
+                    if (newConnectionId == 0)
+                    {
+                        continue;
+                    }
+
+                    // If our tile is affiliated to an origin tree however, we signal it and check the winning condition
+                    bool isTheGameWon = destinationTreeTile.ConnectOriginToDestination(newConnectionId);
+                    if (isTheGameWon)
+                    {
+                        gameManager.TriggerVictory();
+                    }
+                }
+            }
+
             // Reattach a potential dangling path
             if(newConnectionId != 0 && neutralTile){
                 CheckForPath(neutralTilePos, neutralTile);
@@ -267,15 +290,15 @@ namespace AspectGgj2023.Gameboard
         /// </summary>
         private bool IsConnectable(Vector3Int position, int connectionCode)
         {
-            // If a tile from an origin tree, we can always connect
-            OriginTreeTile originTreeTile = mainTilemap.GetTile<OriginTreeTile>(position);
-            if (originTreeTile)
+            // If a tile from a tree, we can always connect
+            Tile genericTile = mainTilemap.GetTile<Tile>(position);
+            if (genericTile is OriginTreeTile || genericTile is DestinationTreeTile)
             {
                 return true;
             }
 
             // Checks if the neighbour is the type that can have connections
-            PlaceableTile connectedTile = mainTilemap.GetTile<PlaceableTile>(position);
+            PlaceableTile connectedTile = genericTile as PlaceableTile;
             if (!connectedTile) 
             {
                 return false;
@@ -362,8 +385,12 @@ namespace AspectGgj2023.Gameboard
                     case 3:
                         debugColor = Color.green;
                         break;
-                    default://case 4:
+                    case 4:
                         debugColor = Color.yellow;
+                        break;
+                    default:
+                        Debug.Log("A tile shouldn't have this ID");
+                        debugColor = Color.magenta;
                         break;
                 }
                 

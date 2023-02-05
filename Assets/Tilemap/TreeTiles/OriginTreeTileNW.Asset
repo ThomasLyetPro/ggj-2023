@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07a717f8ba1b9524bab0501498787ecd, type: 3}
-  m_Name: TestOriginTreeTile
+  m_Name: OriginTreeTileNW
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 3283e26e80c037a4ea76f041e78c9198, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 727be9281b0102d49bb874e7cb6231b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

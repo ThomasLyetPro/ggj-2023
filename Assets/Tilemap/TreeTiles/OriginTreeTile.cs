@@ -13,6 +13,8 @@ namespace AspectGgj2023.Gameboard
     /// </summary>
     public class OriginTreeTile : Tile
     {
+        static public int maxTreeId = 4;
+
         /// <summary>
         /// Id of the origin tree the tile represent
         /// </summary>
@@ -22,6 +24,13 @@ namespace AspectGgj2023.Gameboard
         public int GetOriginTreeId()
         {
             return originTreeId;
+        }
+
+        public override bool StartUp(Vector3Int location, ITilemap tilemap, GameObject go)
+        {
+            Debug.Assert(originTreeId > 0 && originTreeId <= maxTreeId);
+
+            return true;
         }
 
         #if UNITY_EDITOR
