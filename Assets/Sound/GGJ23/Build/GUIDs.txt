@@ -2,5 +2,14 @@
 {2bac1e22-fb1a-03aa-3943-7d4542d91df8} bank:/Master.strings
 {73469c35-ad8d-4896-a867-5450f2999934} bus:/
 {d0c0e933-280a-4eef-bda6-2fc2b3aece95} bus:/Reverb
-{cfc8519a-f6bb-49e5-a4ee-a541306919e4} event:/Ajout tuile
-{dc43014d-c124-4732-b2ab-31dcb2f068b5} event:/Ambiance 1
+{dc43014d-c124-4732-b2ab-31dcb2f068b5} event:/Ambiance/Ambiance V1
+{e5e8f95e-97d2-4b24-b639-a00aafe5b1e9} event:/NPC/AmeDed
+{5b065b08-80c7-43f9-8982-6e330e00637d} event:/NPC/AmeVictory
+{c3929dc5-2ff6-47a3-95b7-f6ad4ee734a8} event:/StartTurn
+{cfc8519a-f6bb-49e5-a4ee-a541306919e4} event:/Tuiles/Add Block
+{7ef1fc8d-a57d-46e7-bbb1-f4950c170a17} event:/Tuiles/Buy Block
+{f0ad608b-bb61-4289-ab96-69dff6cb8386} event:/Tuiles/Turn Block
+{96aa8aa0-ce9e-4227-923c-e1783e7661fb} event:/UI/BackToGame
+{0e14c87c-95cc-4085-8771-762be5aaae6a} event:/UI/Clic
+{9278ba0c-6a14-48ca-874a-49df111a276d} event:/UI/PauseIn
+{e2b002e3-b06a-43a8-af09-f272f82dd219} event:/UI/Play
