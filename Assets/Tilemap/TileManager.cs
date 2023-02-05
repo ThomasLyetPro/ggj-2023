@@ -9,7 +9,7 @@ namespace AspectGgj2023.Gameboard
     {
         # region Internal references
         [SerializeField]
-        private Tilemap mainTilemap;
+        public Tilemap mainTilemap;
 
         [SerializeField]
         private Tilemap previewTilemap;
@@ -70,7 +70,7 @@ namespace AspectGgj2023.Gameboard
             selectedTile = tileTLBR;
 
             BoundsInt tilemapBounds = mainTilemap.cellBounds;
-           
+
             // Iterate through all the possible tiles in the tilemap
             foreach (var point in tilemapBounds.allPositionsWithin)
             {
@@ -96,10 +96,12 @@ namespace AspectGgj2023.Gameboard
             // No tile selected: nothing to place and stop there
             if (!selectedTile)
             {
-                Debug.Log("Nothing selected");
+                // Debug.Log("Nothing selected");
                 previewTilemap.ClearAllTiles();
                 return; 
             }
+
+            if(Input.GetKeyDown(KeyCode.Space)) Debug.Log(MouseToCellPosition());
 
             Vector3Int cellPosition = MouseToCellPosition();
 
@@ -165,7 +167,7 @@ namespace AspectGgj2023.Gameboard
         # region Path connections management
         /// <summary>
         /// Return the next position for a given connection value.
-        private Vector3Int GetConnectedPosition(Vector3Int position, int connectionCode) 
+        public Vector3Int GetConnectedPosition(Vector3Int position, int connectionCode) 
         {
             switch (connectionCode)
             {
@@ -193,7 +195,7 @@ namespace AspectGgj2023.Gameboard
         }
 
         // TODO: Dead code ?
-        private PlaceableTile goToNextTile(Vector3Int position, int connectionOrigin){
+        public Vector3Int? goToNextTile(Vector3Int position, int connectionOrigin){
 
             List<Vector2Int> matrix = mainTilemap.GetTile<PlaceableTile>(position).GetConnectionMatrix();
             Vector2Int connectionPair = matrix.Find( connectionPair => connectionPair.x == connectionOrigin || connectionPair.y == connectionOrigin);
@@ -202,7 +204,7 @@ namespace AspectGgj2023.Gameboard
             Vector3Int connectedPos = GetConnectedPosition(position, otherConnection);
 
             if(IsConnectable(connectedPos, otherConnection)){
-                return mainTilemap.GetTile<PlaceableTile>(position);
+                return connectedPos;
             } else {
                 return null;
             }
@@ -264,7 +266,7 @@ namespace AspectGgj2023.Gameboard
         /// <summary>
         /// Checks if the tile at a given position can be connected to a neighbour with the given connection code in its <see cref="PlaceableTile.connectionMatrix"/>.
         /// </summary>
-        private bool IsConnectable(Vector3Int position, int connectionCode)
+        public bool IsConnectable(Vector3Int position, int connectionCode)
         {
             // If a tile from an origin tree, we can always connect
             OriginTreeTile originTreeTile = mainTilemap.GetTile<OriginTreeTile>(position);

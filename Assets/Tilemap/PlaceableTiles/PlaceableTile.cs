@@ -33,6 +33,25 @@ namespace AspectGgj2023.Gameboard
         return this.connectionMatrix;
       }
 
+
+
+
+      public int getOpposedConnection(int connection){
+        bool connectionFound = false;
+        int opposedConnection = 0;
+        foreach(Vector2Int c in connectionMatrix ){
+          for(int i = 0; i < 2; i ++){
+            if(c[i] == connection){
+              connectionFound = true;
+            } else {
+              opposedConnection = c[i];
+            }
+          }
+          if(connectionFound) return opposedConnection;
+        }
+        return 0;
+      }
+
         #if UNITY_EDITOR
       // The following is a helper that adds a menu item to create a MyTile Asset
           [MenuItem("Assets/Create/CustomTiles/PlaceableTile")]
