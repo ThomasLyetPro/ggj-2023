@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a717f8ba1b9524bab0501498787ecd, type: 3}
   m_Name: OriginTreeTileNE
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 7935dcb1cc2d4ff46b62f58835f4cf81, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
