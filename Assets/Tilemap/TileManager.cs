@@ -296,25 +296,18 @@ namespace AspectGgj2023.Gameboard
 
             // Check for possible connections to the destination tree now that we handled connections to an existing path to an origin
             
-             foreach (Vector3Int neighbourPosition in connectableNeighbours)
-            {
-                DestinationTreeTile destinationTreeTile = mainTilemap.GetTile<DestinationTreeTile>(neighbourPosition);
-                if (destinationTreeTile)
-                {
-                    // We don't have anything to check if we connect a free tile to the destination
-                    if (newConnectionId == 0)
-                    {
-                        continue;
-                    }
-
-                    // If our tile is affiliated to an origin tree however, we signal it and check the winning condition
-                    bool isTheGameWon = destinationTreeTile.ConnectOriginToDestination(newConnectionId);
-                    if (isTheGameWon)
-                    {
-                        gameManager.TriggerVictory();
-                    }
-                }
-            }
+            // foreach (Vector3Int neighbourPosition in connectableNeighbours)
+            // {
+            //     DestinationTreeTile destinationTreeTile = mainTilemap.GetTile<DestinationTreeTile>(neighbourPosition);
+            //     if (destinationTreeTile)
+            //     {
+            //         // We don't have anything to check if we connect a free tile to the destination
+            //         if (newConnectionId == 0)
+            //         {
+            //             continue;
+            //         }
+            //     }
+            // }
 
             // Reattach a potential dangling path
             if(newConnectionId != 0 && neutralTile){

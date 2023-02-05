@@ -13,33 +13,28 @@ namespace AspectGgj2023.Gameboard
     /// </summary>
     public class DestinationTreeTile : Tile
     {
-        private List<int> originTreesConnected = new List<int>();
+        private const int winningCondition = 4;
 
-        /// <summary>
-        /// Connect an origin tree to the destination tree through a tile and return if the game is won or not.
-        /// </summary>
-        public bool ConnectOriginToDestination(int originTreeId) 
+        static private int salvagedSoul = 0;
+
+
+        public bool AddSalvagedSoul()
         {
-            Debug.Assert(originTreeId > 0 && originTreeId <= OriginTreeTile.maxTreeId);
+            salvagedSoul += 1;
 
-            // If the tree is already connected: useless (should not happen though)
-            if (!originTreesConnected.Contains(originTreeId))
-            {
-                originTreesConnected.Add(originTreeId);
-            }
-
-            Debug.Log("ConnectOriginToDestination: " + originTreeId);
-            Debug.Log("new count: " + originTreesConnected.Count);
-
-            // The list can only contain one ID of each tree with no double: win condition is simply this
-            return (originTreesConnected.Count == OriginTreeTile.maxTreeId);
+            return (salvagedSoul >= winningCondition);
         }
 
         public override bool StartUp(Vector3Int location, ITilemap tilemap, GameObject go)
         {
-            originTreesConnected.Clear();
+            salvagedSoul = 0;
 
             return true;
+        }
+
+        static public void ResetWinningCondition()
+        {
+            salvagedSoul = 0;
         }
 
         #if UNITY_EDITOR

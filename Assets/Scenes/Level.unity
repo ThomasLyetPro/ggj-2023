@@ -44129,6 +44129,10 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 491073925518595457, guid: d5e7e27f764720e4590ac7d94caee283, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 935576606}
+    - target: {fileID: 491073925518595457, guid: d5e7e27f764720e4590ac7d94caee283, type: 3}
       propertyPath: tileManager
       value: 
       objectReference: {fileID: 1645494279}
@@ -44272,6 +44276,10 @@ PrefabInstance:
       propertyPath: tilePos.x
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 491073925518595457, guid: d5e7e27f764720e4590ac7d94caee283, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 935576606}
     - target: {fileID: 491073925518595457, guid: d5e7e27f764720e4590ac7d94caee283, type: 3}
       propertyPath: tileManager
       value: 
@@ -44854,6 +44862,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 491073925518595457, guid: d5e7e27f764720e4590ac7d94caee283, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 935576606}
+    - target: {fileID: 491073925518595457, guid: d5e7e27f764720e4590ac7d94caee283, type: 3}
       propertyPath: tileManager
       value: 
       objectReference: {fileID: 1645494279}
@@ -45079,6 +45091,10 @@ PrefabInstance:
       propertyPath: tilePos.y
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 491073925518595457, guid: d5e7e27f764720e4590ac7d94caee283, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 935576606}
     - target: {fileID: 491073925518595457, guid: d5e7e27f764720e4590ac7d94caee283, type: 3}
       propertyPath: tileManager
       value: 
