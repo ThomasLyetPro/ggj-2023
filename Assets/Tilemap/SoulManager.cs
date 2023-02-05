@@ -13,7 +13,8 @@ namespace AspectGgj2023.Gameboard
         [SerializeField]
         private TileManager tileManager;
 
-        private Vector3Int tilePos;
+        [SerializeField]
+        private Vector3Int tilePos = new Vector3Int(0,0,0);
 
         private int connectionOrigin = 0;
 
@@ -22,7 +23,6 @@ namespace AspectGgj2023.Gameboard
         // Start is called before the first frame update
         void Start()
         {
-            tilePos = new Vector3Int(0,0,0);
         }
 
         // Update is called once per frame
@@ -74,6 +74,7 @@ namespace AspectGgj2023.Gameboard
                 if(tileManager.goToNextTile(tilePos, connectionOrigin).HasValue){
                     Debug.Log("------------------------------------------------");
                     Debug.Log("Previous position " + tilePos);
+                    Debug.Log("I come from : " + connectionOrigin);
                     tilePos = tileManager.goToNextTile(tilePos, connectionOrigin).Value;
                     Debug.Log("next pos :" + tilePos);
                     Debug.Log("I go towards connection :" + nextConnections);
