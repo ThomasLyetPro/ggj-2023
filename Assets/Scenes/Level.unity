@@ -143,6 +143,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7907049304420460939, guid: 71fab791ce7622449963ceb45d75d8d0, type: 3}
+      propertyPath: m_Color.a
+      value: 0.45490196
+      objectReference: {fileID: 0}
     - target: {fileID: 8671071769860427762, guid: 71fab791ce7622449963ceb45d75d8d0, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -45255,7 +45259,7 @@ RectTransform:
   m_GameObject: {fileID: 861174671}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -45353,12 +45357,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1180233568}
     - target: {fileID: 3405300947171778201, guid: 58ed585256a1c8f4ca64b22ce07abf50, type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 567599303}
+    - target: {fileID: 3405300947171778201, guid: 58ed585256a1c8f4ca64b22ce07abf50, type: 3}
       propertyPath: informationUI
       value: 
       objectReference: {fileID: 1180233569}
     - target: {fileID: 3405300947171778201, guid: 58ed585256a1c8f4ca64b22ce07abf50, type: 3}
       propertyPath: currentGamePhase
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3405300947171778201, guid: 58ed585256a1c8f4ca64b22ce07abf50, type: 3}
       propertyPath: souls.Array.size
@@ -45533,6 +45541,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 935576606}
+    - target: {fileID: 1934325411, guid: 6232600fdfdda3a42a6c4af60d038f08, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 567599303}
+    - target: {fileID: 1934325411, guid: 6232600fdfdda3a42a6c4af60d038f08, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Launch_Pause
+      objectReference: {fileID: 0}
     - target: {fileID: 2010856977, guid: 6232600fdfdda3a42a6c4af60d038f08, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

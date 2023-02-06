@@ -23,14 +23,16 @@ public class SoundManager : MonoBehaviour
     public void Launch_Clic() { LaunchSFX(SFX_Clic, Camera.main.transform.position); }
     public void Launch_Pause() { LaunchSFX(SFX_Pause, Camera.main.transform.position); }
     public void Launch_Play() { LaunchSFX(SFX_Play, Camera.main.transform.position); }
-    public void Launch_StartTurn() { LaunchSFX(SFX_StartTurn, Camera.main.transform.position); }
+    public void Launch_StartTurn() { LaunchSFX(SFX_StartTurn, Camera.main.transform.position, false); }
     public void Launch_TurnBlock() { LaunchSFX(SFX_TurnBlock, Camera.main.transform.position); }
 
     // Start is called before the first frame update
-    public void LaunchSFX(GameObject sfxPrefab, Vector3 position)
+    public void LaunchSFX(GameObject sfxPrefab, Vector3 position, bool destroy = true)
     {
         position.z = -10;
-        GameObject instance = Instantiate(sfxPrefab, position, Quaternion.identity);
-        Destroy(instance, 10f);
+        var newPosition = Camera.main.transform.position + ((position - Camera.main.transform.position) / 2);
+        GameObject instance = Instantiate(sfxPrefab, newPosition, Quaternion.identity);
+        if(destroy)
+            Destroy(instance, 10f);
     }
 }

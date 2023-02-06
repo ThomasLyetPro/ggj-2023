@@ -120,7 +120,11 @@ namespace AspectGgj2023.Gameboard
                 return; 
             }
 
-            if(Input.GetKeyDown(KeyCode.Space)) Debug.Log(MouseToCellPosition());
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log(MouseToCellPosition());
+                //Debug.Log(position);
+            }
 
             Vector3Int cellPosition = MouseToCellPosition();
 
@@ -201,7 +205,6 @@ namespace AspectGgj2023.Gameboard
                 RaycastResult curRaysastResult = eventSystemRaysastResults[index];
                 if (curRaysastResult.gameObject.layer == LayerMask.NameToLayer("UI"))
                 {
-                    Debug.Log("toto");
                     return true;
                 }
             }
@@ -474,10 +477,12 @@ namespace AspectGgj2023.Gameboard
                 if( Input.GetAxis("Mouse ScrollWheel") > 0.001 ){
                     selectedTileIndex = selectedTileIndex + 1 == tileList.Count ? 0 : selectedTileIndex + 1;
                     selectedTile = tileList[selectedTileIndex];
+                    soundManager.Launch_TurnBlock();
                 }
                 if( Input.GetAxis("Mouse ScrollWheel") < -0.001 ){
                     selectedTileIndex = selectedTileIndex == 0 ? tileList.Count - 1 : selectedTileIndex - 1;
                     selectedTile = tileList[selectedTileIndex];
+                    soundManager.Launch_TurnBlock();
                 }
             }
 

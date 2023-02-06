@@ -23,20 +23,22 @@ public class GameManager : MonoBehaviour
     GameObject startPhaseButton;
     [SerializeField]
     GameObject helpButton;
+    [SerializeField]
+    SoundManager soundManager;
 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-            TriggerVictory();
-        else if (Input.GetKeyDown(KeyCode.M))
-            TriggerDefeat();
+        //if (Input.GetKeyDown(KeyCode.P))
+        //    TriggerPhase2();
+        //else if (Input.GetKeyDown(KeyCode.M))
+        //    TriggerDefeat();
     }
 
     private void SetUIButtonsActive(bool active)
     {
         tileButtons.SetActive(active);
-        startPhaseButton.SetActive(active);
+        //startPhaseButton.SetActive(active);
         helpButton.SetActive(active);
     }
 
@@ -56,6 +58,9 @@ public class GameManager : MonoBehaviour
 
         // Disable button
         SetUIButtonsActive(false);
+        soundManager.Launch_StartTurn();
+        Camera.main.orthographicSize = 7;
+        Camera.main.transform.position = new Vector3(0, 0, -10);
 
         // Trigger soul's journey
         foreach (SoulManager soul in souls)
