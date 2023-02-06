@@ -262,7 +262,7 @@ namespace AspectGgj2023.Gameboard
         }
 
         /// <summary>
-        /// Change the tree ID of the tile based on its neighbours.
+        /// Change the tree ID of the tile based on its neighbours that can be connected.
         /// </summary>
         private void HandleConnection(Vector3Int originPos, List<Vector3Int> connectableNeighbours)
         {
@@ -308,22 +308,28 @@ namespace AspectGgj2023.Gameboard
                 }
             }
 
+            // Color the tile accordingly to a path that has been met.
             originTreeIds[originPos] = newConnectionId;
 
             // Check for possible connections to the destination tree now that we handled connections to an existing path to an origin
-            
-            // foreach (Vector3Int neighbourPosition in connectableNeighbours)
-            // {
-            //     DestinationTreeTile destinationTreeTile = mainTilemap.GetTile<DestinationTreeTile>(neighbourPosition);
-            //     if (destinationTreeTile)
-            //     {
-            //         // We don't have anything to check if we connect a free tile to the destination
-            //         if (newConnectionId == 0)
-            //         {
-            //             continue;
-            //         }
-            //     }
-            // }
+            foreach (Vector3Int neighbourPosition in connectableNeighbours)
+            {
+                DestinationTreeTile destinationTreeTile = mainTilemap.GetTile<DestinationTreeTile>(neighbourPosition);
+                if (destinationTreeTile)
+                {
+                    // We don't have anything to check if we connect a free tile to the destination
+                    if (newConnectionId == 0)
+                    {
+                        continue;
+                    }
+
+                    if (destinationTreeTile.ConnectOriginToDestination(newConnectionId))
+                    {
+                        Debug.Log("Trigger phase 2");
+                        gameManager.TriggerPhase2();
+                    }
+                }
+            }
 
             // Reattach a potential dangling path
             if(newConnectionId != 0 && neutralTile){

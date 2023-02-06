@@ -37,14 +37,15 @@ namespace AspectGgj2023.Gameboard
         void Update()
         {
             gameObject.transform.position = tileManager.mainTilemap.CellToWorld(tilePos) + new Vector3(0,0.5f,0);
+        }
 
-
-
-            if(Input.GetKeyDown(KeyCode.LeftControl))
-            {
-                spriteRenderer.enabled = true;
-                StartCoroutine(Travel());
-            }
+        /// <summary>
+        /// Start the recursive travel of the souls.
+        /// </summary>
+        public void StartTravelCoroutine()
+        {
+            spriteRenderer.enabled = true;
+            StartCoroutine(Travel());
         }
 
         IEnumerator Travel(int count = 0){
