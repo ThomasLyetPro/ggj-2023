@@ -17,6 +17,8 @@ namespace AspectGgj2023.Gameboard
 
         [SerializeField]
         private GameManager gameManager;
+        [SerializeField]
+        private SoundManager soundManager;
 
         [Header("Available tiles")]
         [SerializeField]
@@ -133,6 +135,7 @@ namespace AspectGgj2023.Gameboard
             if (Input.GetMouseButtonDown(0))
             {
                 mainTilemap.SetTile(cellPosition, selectedTile);
+                soundManager.Launch_Add_block(mainTilemap.CellToWorld(cellPosition));
                 mainTilemap.RefreshAllTiles();
 
                 // Set the default tree ID of the tile and try to connect it to its neighbours
@@ -169,7 +172,7 @@ namespace AspectGgj2023.Gameboard
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
             worldPosition.z = 0;
             worldPosition.y -= 0.25f;
-
+            
             // Return its value in tilemap space
             return mainTilemap.WorldToCell(worldPosition);
         }
@@ -198,6 +201,7 @@ namespace AspectGgj2023.Gameboard
                 RaycastResult curRaysastResult = eventSystemRaysastResults[index];
                 if (curRaysastResult.gameObject.layer == LayerMask.NameToLayer("UI"))
                 {
+                    Debug.Log("toto");
                     return true;
                 }
             }
@@ -509,6 +513,7 @@ namespace AspectGgj2023.Gameboard
                 selectedTile = tileTLBR;
             else
                 selectedTile = tileTRBL;
+            soundManager.Launch_TurnBlock();
         }
 
         public void OnCurveTileButtonClick()
@@ -521,6 +526,7 @@ namespace AspectGgj2023.Gameboard
                 selectedTile = tileTLBL;
             else
                 selectedTile = tileBLBR;
+            soundManager.Launch_TurnBlock();
         }
 
         # endregion

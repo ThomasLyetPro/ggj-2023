@@ -1,6 +1,114 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8645810991473847773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/StartTurn
+  m_EditorClassIdentifier: 
+  Path: event:/StartTurn
+  Guid:
+    Data1: -1013801531
+    Data2: 1201876982
+    Data3: -1376340075
+    Data4: -1472927922
+  Banks:
+  - {fileID: 7953550916589879510}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 31927
+--- !u!114 &-7975041924603841829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/PauseIn
+  m_EditorClassIdentifier: 
+  Path: event:/UI/PauseIn
+  Guid:
+    Data1: -1837581812
+    Data2: 1221224980
+    Data3: -548844921
+    Data4: 1831279121
+  Banks:
+  - {fileID: 7953550916589879510}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4000
+--- !u!114 &-7893747811366873004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tuiles/Turn Block
+  m_EditorClassIdentifier: 
+  Path: event:/Tuiles/Turn Block
+  Guid:
+    Data1: -257073013
+    Data2: 1116322657
+    Data3: -546728277
+    Data4: -2038182922
+  Banks:
+  - {fileID: 7953550916589879510}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5400
 --- !u!114 &-7589844732506800276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tuiles/Add Block
+  m_EditorClassIdentifier: 
+  Path: event:/Tuiles/Add Block
+  Guid:
+    Data1: -808955494
+    Data2: 1239807675
+    Data3: 1101393572
+    Data4: -468096720
+  Banks:
+  - {fileID: 7953550916589879510}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5000
+--- !u!114 &-6199622191771042399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,9 +150,7 @@ MonoBehaviour:
   Path: Assets/Sound/GGJ23/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-
-  lastModified: 638112076789821024
-
+  lastModified: 638113042925748659
   FileSizes:
   - Name: Desktop
     Value: 1228
@@ -200,25 +306,23 @@ MonoBehaviour:
   - {fileID: -5639387537771079057}
   - {fileID: 7953550916589879510}
   EditorEvents:
-  - {fileID: -7589844732506800276}
-  - {fileID: 4191750865925241474}
-  - {fileID: 1931351810970998736}
-  - {fileID: -3295955993261328819}
-  - {fileID: -1255398781420038773}
-  - {fileID: 243648719254811466}
-  - {fileID: -3614735382446609525}
-  - {fileID: -5124107460488009554}
-  - {fileID: -5562959618101977100}
-  - {fileID: 5526900066654075171}
-  - {fileID: 5259945400513307812}
+  - {fileID: 5140177866562982386}
+  - {fileID: -7975041924603841829}
+  - {fileID: 910250495065035352}
+  - {fileID: 8591518368705032895}
+  - {fileID: 5104956232400340924}
+  - {fileID: -7893747811366873004}
+  - {fileID: 5082231037334255617}
+  - {fileID: -6199622191771042399}
+  - {fileID: 1923405060149484218}
+  - {fileID: -8645810991473847773}
+  - {fileID: 7355537748271970482}
   EditorParameters: []
   MasterBanks:
   - {fileID: 7953550916589879510}
   StringsBanks:
   - {fileID: -5639387537771079057}
-
-  cacheTime: 638112076789821024
-
+  cacheTime: 638113042925748659
   cacheVersion: 131601
 --- !u!114 &243648719254811466
 MonoBehaviour:
@@ -247,6 +351,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4000
+--- !u!114 &910250495065035352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/Ambiance V1
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/Ambiance V1
+  Guid:
+    Data1: -599588531
+    Data2: 1194508580
+    Data3: -600724558
+    Data4: -1251413838
+  Banks:
+  - {fileID: 7953550916589879510}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 60000
+--- !u!114 &1923405060149484218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/BackToGame
+  m_EditorClassIdentifier: 
+  Path: event:/UI/BackToGame
+  Guid:
+    Data1: -1767208288
+    Data2: 1109905054
+    Data3: 2028027026
+    Data4: -77498818
+  Banks:
+  - {fileID: 7953550916589879510}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6000
 --- !u!114 &1931351810970998736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,6 +459,87 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 60000
+--- !u!114 &5082231037334255617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tuiles/Buy Block
+  m_EditorClassIdentifier: 
+  Path: event:/Tuiles/Buy Block
+  Guid:
+    Data1: 2129788045
+    Data2: 1189586301
+    Data3: -1779125829
+    Data4: 386537228
+  Banks:
+  - {fileID: 7953550916589879510}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4200
+--- !u!114 &5104956232400340924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Clic
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Clic
+  Guid:
+    Data1: 236243068
+    Data2: 1082496460
+    Data3: 729182599
+    Data4: 1789831909
+  Banks:
+  - {fileID: 7953550916589879510}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8500
+--- !u!114 &5140177866562982386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/NPC/AmeVictory
+  m_EditorClassIdentifier: 
+  Path: event:/NPC/AmeVictory
+  Guid:
+    Data1: 1527143176
+    Data2: 1140424903
+    Data3: 862880393
+    Data4: 2103640078
+  Banks:
+  - {fileID: 7953550916589879510}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 11500
 --- !u!114 &5259945400513307812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +594,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 31927
+--- !u!114 &7355537748271970482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Play
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Play
+  Guid:
+    Data1: -491781405
+    Data2: 1135128682
+    Data3: 1928464815
+    Data4: 433204728
+  Banks:
+  - {fileID: 7953550916589879510}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 10666
 --- !u!114 &7953550916589879510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,10 +636,35 @@ MonoBehaviour:
   Path: Assets/Sound/GGJ23/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-
-  lastModified: 638112076789801366
-
+  lastModified: 638113042925738691
   FileSizes:
   - Name: Desktop
     Value: 4828704
   Exists: 1
+--- !u!114 &8591518368705032895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/NPC/AmeDed
+  m_EditorClassIdentifier: 
+  Path: event:/NPC/AmeDed
+  Guid:
+    Data1: -437716642
+    Data2: 1260689362
+    Data3: 178272694
+    Data4: -374217297
+  Banks:
+  - {fileID: 7953550916589879510}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3075

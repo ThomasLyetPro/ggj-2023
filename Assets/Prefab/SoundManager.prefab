@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8126333458993323547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8126333458993323541}
+  - component: {fileID: 8126333458993323546}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8126333458993323541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8126333458993323547}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8126333458993323546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8126333458993323547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef57069feae8144097974cf74b8ad86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFX_Add_block: {fileID: 384000721922745663, guid: fce2e460895495647891fa8b6fce2ed7, type: 3}
+  SFX_AmeDed: {fileID: 518529258298303698, guid: 73b0ed7f1528a04418f6b9fc1d4476e5, type: 3}
+  SFX_AmeVictory: {fileID: 4436519054987508086, guid: 67c7ec7a263a3d64f9e4b47d8766cd3c, type: 3}
+  SFX_BacktoGame: {fileID: 6479426637261426516, guid: ee8740d9ae30cf948bca3d6d2588fe0b, type: 3}
+  SFX_BuyBlock: {fileID: 8300666550744698017, guid: 0bde24dff15546f4d8f2535ad816efaf, type: 3}
+  SFX_Clic: {fileID: 3625640428171325776, guid: e8607220c6994e94caac98a25e2c7c5a, type: 3}
+  SFX_Pause: {fileID: 2689123464897674859, guid: db223dc37cc426e4cb83c9df9ebf90e5, type: 3}
+  SFX_Play: {fileID: 2557300675744652722, guid: 146c6b42ce0ccd540a7f7c05e1a89ff7, type: 3}
+  SFX_StartTurn: {fileID: 3718885494875885656, guid: ef9c613c73085d848b2f595a07de5998, type: 3}
+  SFX_TurnBlock: {fileID: 8304639298052131152, guid: 67509ffad20567f49ac9657d873368db, type: 3}

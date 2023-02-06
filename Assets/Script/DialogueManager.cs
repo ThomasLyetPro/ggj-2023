@@ -28,7 +28,8 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
     // Reference to close button prefab
     [SerializeField]
     GameObject closePrefab;
-
+    [SerializeField]
+    SoundManager soundManager;
 
     // To check if we are currently showing the dialog ui interface
     public bool DialogueActive { get; set; }
@@ -126,12 +127,14 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
                 GameObject nextbtn = Instantiate(branchPrefab, branchLayoutPanel);
                 // Let the BranchChoice component fill the button content
                 nextbtn.GetComponent<BranchChoice>().AssignBranch(flowPlayer, branch);
+                nextbtn.GetComponent<Button>().onClick.AddListener(soundManager.Launch_Clic);
             }
 
             // Dialogue is finished, instantiate a close button
             GameObject btn = Instantiate(closePrefab, branchLayoutPanel);
             // Clicking this button will close the Dialogue UI
             var btnComp = btn.GetComponent<Button>();
+            btnComp.onClick.AddListener(soundManager.Launch_Clic);
             btnComp.onClick.AddListener(CloseDialogueBox);
         }
         else
@@ -140,6 +143,7 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
             GameObject btn = Instantiate(closePrefab, branchLayoutPanel);
             // Clicking this button will close the Dialogue UI
             var btnComp = btn.GetComponent<Button>();
+            btnComp.onClick.AddListener(soundManager.Launch_Clic);
             btnComp.onClick.AddListener(CloseDialogueBox);
         }
     }
