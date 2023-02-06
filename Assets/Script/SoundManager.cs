@@ -33,6 +33,6 @@ public class SoundManager : MonoBehaviour
         var newPosition = Camera.main.transform.position + ((position - Camera.main.transform.position) / 2);
         GameObject instance = Instantiate(sfxPrefab, newPosition, Quaternion.identity);
         if(destroy)
-            Destroy(instance, 10f);
+            Destroy(instance, 4f);
     }
 }

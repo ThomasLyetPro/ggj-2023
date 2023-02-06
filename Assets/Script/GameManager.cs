@@ -29,8 +29,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.P))
-        //    TriggerPhase2();
+        if (Input.GetKeyDown(KeyCode.P))
+            TriggerPhase2();
         //else if (Input.GetKeyDown(KeyCode.M))
         //    TriggerDefeat();
     }
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         SetUIButtonsActive(false);
         soundManager.Launch_StartTurn();
         Camera.main.orthographicSize = 7;
-        Camera.main.transform.position = new Vector3(0, 0, -10);
+        Camera.main.transform.position = new Vector3(0, 0.5f, -10);
 
         // Trigger soul's journey
         foreach (SoulManager soul in souls)
