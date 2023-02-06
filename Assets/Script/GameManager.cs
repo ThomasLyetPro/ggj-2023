@@ -10,6 +10,12 @@ public class GameManager : MonoBehaviour
     public enum GamePhase { Phase1, Phase2, Pause, Defeat, Victory }
     public GamePhase currentGamePhase = GamePhase.Pause;
 
+    /// <summary>
+    /// The soul managers of the game.
+    /// </summary>
+    [SerializeField]
+    private List<SoulManager> souls = new List<SoulManager>();
+
     [Header("Game Loop")]
     [SerializeField]
     GameObject tileButtons;
@@ -17,6 +23,7 @@ public class GameManager : MonoBehaviour
     GameObject startPhaseButton;
     [SerializeField]
     GameObject helpButton;
+
 
     private void Update()
     {
@@ -51,7 +58,11 @@ public class GameManager : MonoBehaviour
         SetUIButtonsActive(false);
 
         // Trigger soul's journey
-        StartCoroutine(DelayTriggerPhase1());
+        foreach (SoulManager soul in souls)
+        {
+            soul.StartTravelCoroutine();
+        }
+        // StartCoroutine(DelayTriggerPhase1());
     }
 
     IEnumerator DelayTriggerPhase1()
